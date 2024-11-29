@@ -14,11 +14,11 @@ document.getElementById("nave").addEventListener("keydown", (evento)=>{
         case "w":
             intervalo = setInterval(()=>{
                 velocidad += 1;
-            }, velocidad);
+            }, 50);
         break;
     }   
 });
 
 intervalo = setInterval(()=>{
     gravedad += 1;
-}, velocidad);
+}, 50);
