@@ -1,0 +1,14 @@
+Proyecto Nave
+
+- El programa consiste en una nave que despega en la tierra.
+- Su objetivo es llegar a la luna, y aterrizar de forma segura.
+- Hay meteoritos que si colisionan con la nave el programa finaliza.
+
+Dia 1:
+
+- Investigación para averiguar como usar github.
+- Creacion del repositorio y vinculacion con github desktop.
+
+- Creación de los 3 archivos.
+- Noelia ha creado la base para el html.
+- Iván ha creado la base para el js.
