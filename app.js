@@ -16,12 +16,12 @@ ObjNave = {
         //gravedad
         intervalo = setInterval(()=>{
             if(this.Y >= 0){
-                this.Y -= this.gravedad;
+                this.Y -= this.gravedad * ObjNave.Velocidad;
             }
             if(this.Y <= 0){
                 this.Y = 0;
             }
-        }, 100);
+        }, 10);
     },
     mostrarDatos(){
         //mostrar coordenadas
@@ -44,9 +44,9 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowUp":
             if(!arriba){
                 arriba = setInterval(()=>{
-                    ObjNave.Velocidad += 0.005;
-                    ObjNave.Y += 0.03 * ObjNave.Velocidad;
-                    clearInterval(disminuirVelocidad); 
+                    ObjNave.Velocidad += 0.01;
+                    ObjNave.Y += 0.04 * ObjNave.Velocidad;
+                    clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
                 }, 10);
             }
@@ -58,7 +58,7 @@ document.addEventListener("keydown", function(teclas){
             if(!abajo){
                 abajo = setInterval(()=>{
                     if(ObjNave.Y >= 0.03){
-                        ObjNave.Velocidad += 0.005;
+                        ObjNave.Velocidad += 0.01;
                         ObjNave.Y -= 0.03 * ObjNave.Velocidad;
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
@@ -72,11 +72,14 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowLeft":
             if(!izquierda){
                 izquierda = setInterval(()=>{
-                    if(ObjNave.X >= 0.03){
-                        ObjNave.Velocidad += 0.005;
+                    if(ObjNave.X >= 0){
+                        ObjNave.Velocidad += 0.01;
                         ObjNave.X -= 0.03 * ObjNave.Velocidad;
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
+                        if(ObjNave.X <= 0){
+                            ObjNave.X = 0;
+                        }
                     }
                 }, 10);
             }
@@ -87,7 +90,7 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowRight":
             if(!derecha){
                 derecha = setInterval(()=>{
-                    ObjNave.Velocidad += 0.005;
+                    ObjNave.Velocidad += 0.01;
                     ObjNave.X += 0.03 * ObjNave.Velocidad;
                     clearInterval(disminuirVelocidad); 
                     disminuirVelocidad = null;
@@ -134,7 +137,8 @@ document.addEventListener("keyup", function(teclas){
         default:
             alert("tecla no valida")
     }
-    
+
+    //comenzar a bajar la velocidad al soltar una tecla
     if(!disminuirVelocidad){
         disminuirVelocidad = setInterval(()=>{
             if (ObjNave.Velocidad <= 1) { 
@@ -143,9 +147,10 @@ document.addEventListener("keyup", function(teclas){
             }else{
                 ObjNave.Velocidad -= 0.005;
             }
-        }, 1);
+        }, 10);
     }
 });
 
 ObjNave.iniciarGravedad();
 ObjNave.mostrarDatos();
+
