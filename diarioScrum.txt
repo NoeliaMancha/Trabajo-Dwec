@@ -10,7 +10,7 @@ Dia 1:
 - Creacion del repositorio y vinculacion con github desktop.
 
 - Creación de los 3 archivos.
-- Noelia ha creado la base para el html.
+- Noelia ha creado la base para el HTML.
 - Iván ha creado la base para el js.
 
 Dia 2:
@@ -28,3 +28,15 @@ Dia 2:
         -Creacion y implementacion del multiplicador "Velocidad".
 
     -Pequeñas modificaciones en el html y css para una mejor visibilidad de las coordenadas.
+
+-Noelia : 
+	- Ha agregado las imágenes de fondo, la nave y los 3 asteroides.
+	- En HTML:
+		- Ha realizado los cambios necesarios para poder añadir las imágenes que faltaban.
+	- En Css:
+		- Creación del css. 
+		- Ha puesto la imagen de fondo.
+		- Ha modificado los tamaños de todos los elementos.
+		- Ha situado la luna y la tierra en el lugar que les corresponden.
+	- En Photoshop:
+		- He retocado las fotos para que se ajustasen a lo que necesitábamos, dejándolas sin fondo y recortando lo que no nos 			interesaba.
