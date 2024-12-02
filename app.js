@@ -1,3 +1,4 @@
+//variables a traves de id
 nave = document.getElementById("nave");
 luna = document.getElementById("luna");
 asteroide1 = document.getElementById("asteroide1");
@@ -6,6 +7,7 @@ asteroide3 = document.getElementById("asteroide3");
 
 ObjNave = {
     //variables de la nave
+    Velocidad: 1,
     gravedad: 0.01,
     X: 0,
     Y: 0,
@@ -25,11 +27,15 @@ ObjNave = {
         //mostrar coordenadas
         intervalo2 = setInterval(()=>{
             document.getElementById("cords").innerHTML = "X: " + this.X.toFixed(2) + "<br> Y: " + this.Y.toFixed(2);
+            document.getElementById("velocidad").innerHTML = this.Velocidad.toFixed(2) + " Km/s";
         });
     }
 }
 
+//creacion de los intervalos
 let arriba, abajo, izquierda, derecha;
+let disminuirVelocidad;
+
 document.addEventListener("keydown", function(teclas){
     //pulsar teclas
     switch(teclas.key){
@@ -38,8 +44,11 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowUp":
             if(!arriba){
                 arriba = setInterval(()=>{
-                    ObjNave.Y += 0.03;
-                }, 100);
+                    ObjNave.Velocidad += 0.005;
+                    ObjNave.Y += 0.03 * ObjNave.Velocidad;
+                    clearInterval(disminuirVelocidad); 
+                    disminuirVelocidad = null;
+                }, 10);
             }
             break;
 
@@ -49,9 +58,12 @@ document.addEventListener("keydown", function(teclas){
             if(!abajo){
                 abajo = setInterval(()=>{
                     if(ObjNave.Y >= 0.03){
-                        ObjNave.Y -= 0.03;
+                        ObjNave.Velocidad += 0.005;
+                        ObjNave.Y -= 0.03 * ObjNave.Velocidad;
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
                     }
-                }, 100);
+                }, 10);
             }
             break;
 
@@ -61,9 +73,12 @@ document.addEventListener("keydown", function(teclas){
             if(!izquierda){
                 izquierda = setInterval(()=>{
                     if(ObjNave.X >= 0.03){
-                        ObjNave.X -= 0.03;
+                        ObjNave.Velocidad += 0.005;
+                        ObjNave.X -= 0.03 * ObjNave.Velocidad;
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
                     }
-                }, 100);
+                }, 10);
             }
             break;
 
@@ -72,8 +87,11 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowRight":
             if(!derecha){
                 derecha = setInterval(()=>{
-                    ObjNave.X += 0.03;
-                }, 100);
+                    ObjNave.Velocidad += 0.005;
+                    ObjNave.X += 0.03 * ObjNave.Velocidad;
+                    clearInterval(disminuirVelocidad); 
+                    disminuirVelocidad = null;
+                }, 10);
             }
             break;
 
@@ -115,6 +133,17 @@ document.addEventListener("keyup", function(teclas){
 
         default:
             alert("tecla no valida")
+    }
+    
+    if(!disminuirVelocidad){
+        disminuirVelocidad = setInterval(()=>{
+            if (ObjNave.Velocidad <= 1) { 
+                clearInterval(disminuirVelocidad); 
+                disminuirVelocidad = null;
+            }else{
+                ObjNave.Velocidad -= 0.005;
+            }
+        }, 1);
     }
 });
 
