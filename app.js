@@ -4,21 +4,50 @@ asteroide1 = document.getElementById("asteroide1");
 asteroide2 = document.getElementById("asteroide2");
 asteroide3 = document.getElementById("asteroide3");
 
-velocidad = 0;
-gravedad = 0;
+ObjNave = {
+    //variables de la nave
+    gravedad: 0.01,
+    X: 0,
+    Y: 0,
 
-let intervalo;
-document.getElementById("nave").addEventListener("keydown", (evento)=>{
-    switch(evento.key){
-        case "ArrowUp":
+    iniciarGravedad(){
+        //gravedad
+        intervalo = setInterval(()=>{
+            if(this.Y >= 0){
+                this.Y -= this.gravedad;
+            }
+            if(this.Y <= 0){
+                this.Y = 0;
+            }
+        }, 100);
+    },
+    mostrarDatos(){
+        //mostrar coordenadas
+        intervalo2 = setInterval(()=>{
+            document.getElementById("cords").innerHTML = "X: " + this.X.toFixed(2) + "<br> Y: " + this.Y.toFixed(2);
+        });
+    }
+}
+
+document.addEventListener("keydown", function(teclas){
+    //teclas
+    switch(teclas.key){
         case "w":
-            intervalo = setInterval(()=>{
-                velocidad += 1;
-            }, 50);
-        break;
-    }   
+        case "W":
+        case "ArrowUp":
+            ObjNave.Y += 0.03;
+            break;
+        case "s":
+        case "S":
+        case "ArrowDown":
+            if(ObjNave.Y >= 0.02){
+                ObjNave.Y -= 0.03;
+            }
+            break;
+        default:
+            alert("tecla no valida")
+    }
 });
 
-intervalo = setInterval(()=>{
-    gravedad += 1;
-}, 50);
+ObjNave.iniciarGravedad();
+ObjNave.mostrarDatos();

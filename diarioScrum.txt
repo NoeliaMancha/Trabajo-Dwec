@@ -12,3 +12,17 @@ Dia 1:
 - Creación de los 3 archivos.
 - Noelia ha creado la base para el html.
 - Iván ha creado la base para el js.
+
+Dia 2:
+
+-Iván ha hecho modificaciones en el js, html y css incluyendo:
+    -En js:
+        -Creacion del objeto nave.
+        -Creacion de las variable "gravedad", "X" e "Y".
+        -Funcion gravedad, que va restando constantemente al eje "Y", excepto si "Y" es 0 o menos.
+        -Funcion mostrarDatos que va mostrando las coordenadas de los ejes constantemente.
+        -Creacion de la funcion "teclas", que detecta la tecla que pulsa el usuario.
+        -En la funcion "teclas" se utiliza un switch para alternar entre las teclas que pulsa el usuario.
+        -Caso "w" para sumar y caso "s" para restar a "Y", caso default si la tecla pulsada no tiene funcion.
+
+    -Pequeñas modificaciones en el html y css para una mejor visibilidad de las coordenadas.
