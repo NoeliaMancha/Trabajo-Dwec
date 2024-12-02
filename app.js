@@ -29,21 +29,90 @@ ObjNave = {
     }
 }
 
+let arriba, abajo, izquierda, derecha;
 document.addEventListener("keydown", function(teclas){
-    //teclas
+    //pulsar teclas
     switch(teclas.key){
         case "w":
         case "W":
         case "ArrowUp":
-            ObjNave.Y += 0.03;
+            if(!arriba){
+                arriba = setInterval(()=>{
+                    ObjNave.Y += 0.03;
+                }, 100);
+            }
             break;
+
         case "s":
         case "S":
         case "ArrowDown":
-            if(ObjNave.Y >= 0.02){
-                ObjNave.Y -= 0.03;
+            if(!abajo){
+                abajo = setInterval(()=>{
+                    if(ObjNave.Y >= 0.03){
+                        ObjNave.Y -= 0.03;
+                    }
+                }, 100);
             }
             break;
+
+        case "a":
+        case "A":
+        case "ArrowLeft":
+            if(!izquierda){
+                izquierda = setInterval(()=>{
+                    if(ObjNave.X >= 0.03){
+                        ObjNave.X -= 0.03;
+                    }
+                }, 100);
+            }
+            break;
+
+        case "d":
+        case "D":
+        case "ArrowRight":
+            if(!derecha){
+                derecha = setInterval(()=>{
+                    ObjNave.X += 0.03;
+                }, 100);
+            }
+            break;
+
+        default:
+            alert("tecla no valida")
+    }
+});
+
+document.addEventListener("keyup", function(teclas){
+    //soltar teclas
+    switch(teclas.key){
+        case "w":
+        case "W":
+        case "ArrowUp":
+            clearInterval(arriba);
+            arriba = null;
+            break;
+
+        case "s":
+        case "S":
+        case "ArrowDown":
+            clearInterval(abajo);
+            abajo = null;
+            break;
+
+        case "a":
+        case "A":
+        case "ArrowLeft":
+            clearInterval(izquierda);
+            izquierda = null;
+            break;
+
+        case "d":
+        case "D":
+        case "ArrowRight":
+            clearInterval(derecha);
+            derecha = null;
+            break;
+
         default:
             alert("tecla no valida")
     }
