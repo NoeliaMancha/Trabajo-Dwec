@@ -157,9 +157,8 @@ document.addEventListener("keyup", function(teclas){
 
 ObjNave.iniciarGravedad();
 ObjNave.mostrarDatos();
-<<<<<<< HEAD
+
 ObjNave.moverNave();
-=======
 
 let horizontalX=0;
 let direccionX=1;
@@ -181,4 +180,4 @@ function moverAsteroide1(){
 }
 
 setInterval(moverAsteroide1, 15);
->>>>>>> 9fa08a45152a5fe01667dd1e8fe259981234c00d
+
