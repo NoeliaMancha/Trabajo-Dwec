@@ -39,4 +39,16 @@ Dia 2:
 		- Ha modificado los tamaños de todos los elementos.
 		- Ha situado la luna y la tierra en el lugar que les corresponden.
 	- En Photoshop:
-		- He retocado las fotos para que se ajustasen a lo que necesitábamos, dejándolas sin fondo y recortando lo que no nos interesaba.
+		- Ha retocado las fotos para que se ajustasen a lo que necesitábamos, dejándolas sin fondo y recortando lo que no nos interesaba.
+
+Dia 4:
+
+Objetivos realizados:
+    -Noelia ha hecho cambios en la posicion de las imágenes del css
+    -Iván ha puesto bordes a todas las imagenes para determinar la "hitbox" temporalmente;
+
+Objetivos planeados:
+    -Tratar de mover los asteroides de determinada forma.
+    -Tratar de mover la nave con las teclas.
+
+Objetivos finales:

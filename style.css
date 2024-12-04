@@ -8,7 +8,6 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
 }
 
 #nave{
@@ -27,12 +26,12 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
-    border: 2px solid rgb(255, 255, 255);
 }
 
 #tierra img {
     width: 14%;
     height: auto;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #luna {
@@ -50,20 +49,22 @@ body {
 
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
-    border: 2px solid rgb(255, 255, 255);
 }
 
 #asteroide1 img {
     width: 20%;
     height: auto;
+    border: 2px solid rgb(255, 255, 255);
 }
 #asteroide2 img {
     width: 30%;
     height: auto;
+    border: 2px solid rgb(255, 255, 255);
 }
 #asteroide3 img {
     width: 40%;
     height: auto;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #asteroide1 {
