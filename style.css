@@ -14,10 +14,8 @@ body {
     z-index: 3;
     position:absolute;
     bottom: 20%;
-    left: 5%;
-}
-#nave img {
-    width: 10%;
+    left: 5.5%;
+    width: 3.5%;
     height: auto;
     border: 2px solid rgb(255, 255, 255);
 }
