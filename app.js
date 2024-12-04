@@ -2,9 +2,6 @@
 nave = document.getElementById("nave");
 luna = document.getElementById("luna");
 tierra = document.getElementById("tierra");
-asteroide1 = document.getElementById("asteroide1");
-asteroide2 = document.getElementById("asteroide2");
-asteroide3 = document.getElementById("asteroide3");
 
 ObjNave = {
     //variables de la nave
@@ -280,7 +277,9 @@ ObjNave.moverNave();
 
 
 
-
+asteroide1 = document.getElementById("asteroide1");
+asteroide2 = document.getElementById("asteroide2");
+asteroide3 = document.getElementById("asteroide3");
 
 let horizontalX=0;
 let direccionX=1;

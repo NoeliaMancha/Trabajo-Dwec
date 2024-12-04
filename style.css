@@ -49,6 +49,7 @@ body {
 
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
+    width: auto;
 }
 
 #asteroide1 img {
