@@ -67,11 +67,18 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowDown":
             if(!abajo){
                 abajo = setInterval(()=>{
-                    if(ObjNave.Y >= -140 || ObjNave.X <= 140){
-                        ObjNave.Velocidad += 0.01;
-                        ObjNave.Y -= 0.5 * ObjNave.Velocidad;
+                    //colision con la tierra
+                    if(ObjNave.X <= 120 && ObjNave.Y <= 75){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
+                    }else{
+                        //movimiento
+                        if(ObjNave.Y >= -140){
+                            ObjNave.Velocidad += 0.01;
+                            ObjNave.Y -= 0.5 * ObjNave.Velocidad;
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                        }
                     }
                 }, 10);
             }
@@ -82,13 +89,20 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowLeft":
             if(!izquierda){
                 izquierda = setInterval(()=>{
-                    if(ObjNave.X >= 0){
-                        ObjNave.Velocidad += 0.01;
-                        ObjNave.X -= 0.5 * ObjNave.Velocidad;
+                    //colision con la tierra
+                    if(ObjNave.X <= 140 && ObjNave.Y <= 65){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
-                        if(ObjNave.X <= 0){
-                            ObjNave.X = 0;
+                    }else{
+                        //movimiento
+                        if(ObjNave.X >= 0){
+                            ObjNave.Velocidad += 0.01;
+                            ObjNave.X -= 0.5 * ObjNave.Velocidad;
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                            if(ObjNave.X <= 0){
+                                ObjNave.X = 0;
+                            }
                         }
                     }
                 }, 10);
@@ -100,10 +114,17 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowRight":
             if(!derecha){
                 derecha = setInterval(()=>{
-                    ObjNave.Velocidad += 0.01;
-                    ObjNave.X += 0.5 * ObjNave.Velocidad;
-                    clearInterval(disminuirVelocidad); 
-                    disminuirVelocidad = null;
+                    //colision con la tierra
+                    if(ObjNave.X <= 120 && ObjNave.Y <= 65){
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
+                    }else{
+                        //movimiento
+                        ObjNave.Velocidad += 0.01;
+                        ObjNave.X += 0.5 * ObjNave.Velocidad;
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
+                    }
                 }, 10);
             }
             break;
@@ -154,10 +175,112 @@ document.addEventListener("keyup", function(teclas){
         }, 10);
     }
 });
-
 ObjNave.iniciarGravedad();
 ObjNave.mostrarDatos();
 ObjNave.moverNave();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 let horizontalX=0;
 let direccionX=1;
