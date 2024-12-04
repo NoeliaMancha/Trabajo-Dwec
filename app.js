@@ -148,3 +148,23 @@ document.addEventListener("keyup", function(teclas){
 ObjNave.iniciarGravedad();
 ObjNave.mostrarDatos();
 
+let horizontalX=0;
+let direccionX=1;
+
+const anchoPagina=window.innerWidth;
+const anchoAsteroide1=asteroide1.offsetWidth;
+
+function moverAsteroide1(){
+    horizontalX +=5 * direccionX;
+    asteroide1.style.marginLeft=horizontalX+"px";
+
+    if(horizontalX + anchoAsteroide1> anchoPagina){
+        horixontalX=anchoPagina-anchoAsteroide1;
+        direccionX=-1
+    }else if(horizontalX<0){
+        horizontalX=0;
+        direccionX=1;
+    }
+}
+
+setInterval(moverAsteroide1, 15);
