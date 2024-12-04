@@ -87,7 +87,7 @@ document.addEventListener("keydown", function(teclas){
             if(!izquierda){
                 izquierda = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 140 && ObjNave.Y <= 65){
+                    if(ObjNave.X <= 135 && ObjNave.Y <= 65){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
