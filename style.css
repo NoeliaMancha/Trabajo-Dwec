@@ -20,12 +20,14 @@ body {
 #nave img {
     width: 10%;
     height: auto;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #tierra {
     position: absolute;
     bottom: 0;
     left: 0;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #tierra img {
@@ -35,8 +37,10 @@ body {
 
 #luna {
     position: absolute;
-    top: 10%;
     left: 85%;
+    top: 20%;
+    right: 0;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #luna img {
@@ -46,6 +50,7 @@ body {
 
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #asteroide1 img {
