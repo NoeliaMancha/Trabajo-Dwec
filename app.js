@@ -97,9 +97,6 @@ document.addEventListener("keydown", function(teclas){
                 }, 10);
             }
             break;
-
-        default:
-            alert("tecla no valida")
     }
 });
 
@@ -133,9 +130,6 @@ document.addEventListener("keyup", function(teclas){
             clearInterval(derecha);
             derecha = null;
             break;
-
-        default:
-            alert("tecla no valida")
     }
 
     //comenzar a bajar la velocidad al soltar una tecla

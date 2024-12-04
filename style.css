@@ -1,76 +1,80 @@
 html, body {
-    height: 98%; /* Asegura que el html y el body ocupen toda la altura de la ventana */
-    margin: 0; /* Elimina el margen por defecto */
+    height: 98%;
+    margin: 0;
 }
 
 body {
     background-image: url('fondo.jpg');
-    background-size: cover; /* Esto hace que la imagen cubra todo el fondo */
-    background-position: center; /* Esto centra la imagen */
-    background-repeat: no-repeat; /* Esto evita que la imagen se repita */
-    position: relative; /* Asegura que los elementos hijos se posicionen en relación con el body */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
-/* Estilo para la imagen de la nave */
 #nave img {
-    width: 80px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 80px;
+    height: auto;
 }
 
-/* Estilo para la imagen de la tierra */
 #tierra {
-    position: absolute; /* Posiciona el div de la tierra de forma absoluta */
-    bottom: 0; /* Coloca en la parte inferior */
-    left: 0; /* Coloca en la parte izquierda */
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 #tierra img {
-    width: 200px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 200px;
+    height: auto;
 }
 
-/* Estilo para la imagen de la luna */
 #luna {
-    position: absolute; /* Posiciona el div de la luna de forma absoluta */
-    top: 0; /* Coloca en la parte superior */
-    right: 0; /* Coloca en la parte derecha */
+    position: absolute;
+    top: 20%;
+    right: 0;
 }
 
 #luna img {
-    width: 220px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 220px;
+    height: auto;
+    bottom: 3%;
 }
 
-/* Estilo para los asteroides */
 #asteroide1, #asteroide2, #asteroide3 {
-    position: absolute; /* Posiciona los asteroides de forma absoluta */
+    position: absolute;
 }
 
-#asteroide1 img{
-    width: 70px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+#asteroide1 img {
+    width: 70px;
+    height: auto;
 }
-#asteroide2 img{
-    width: 90px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+#asteroide2 img {
+    width: 90px;
+    height: auto;
 }
 #asteroide3 img {
-    width: 110px; /* Cambia el ancho según lo que necesites */
-    height: auto; /* Mantiene la proporción de la imagen */
+    width: 110px;
+    height: auto;
 }
 
-/* Ejemplo de posiciones para los asteroides (ajusta según tus necesidades) */
 #asteroide1 {
-    top: 100px; /* Ajusta la posición vertical */
-    left: 100px; /* Ajusta la posición horizontal */
+    top: 100px;
+    left: 100px;
 }
 
 #asteroide2 {
-    top: 200px; /* Ajusta la posición vertical */
-    left: 200px; /* Ajusta la posición horizontal */
+    top: 200px;
+    left: 200px;
 }
 
 #asteroide3 {
-    top: 300px; /* Ajusta la posición vertical */
-    left: 300px; /* Ajusta la posición horizontal */
+    top: 300px;
+    left: 300px;
+}
+
+.datos {
+    position: absolute;
+    right: 3%;
+    bottom: 0;
+    color: white;
+    z-index: 10;
 }
