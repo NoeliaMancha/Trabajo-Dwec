@@ -147,6 +147,11 @@ document.addEventListener("keyup", function(teclas){
 
 ObjNave.iniciarGravedad();
 ObjNave.mostrarDatos();
+<<<<<<< HEAD
+=======
+
+ObjNave.moverNave();
+>>>>>>> e2998931f5940702b94537776dc961c2eda20053
 
 let horizontalX=0;
 let direccionX=1;
