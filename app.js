@@ -170,7 +170,7 @@ function moverAsteroide1(){
     asteroide1.style.marginLeft=horizontalX+"px";
 
     if(horizontalX + anchoAsteroide1> anchoPagina){
-        horixontalX=anchoPagina-anchoAsteroide1;
+        horizontalX=anchoPagina-anchoAsteroide1;
         direccionX=-1
     }else if(horizontalX<0){
         horizontalX=0;
@@ -179,3 +179,24 @@ function moverAsteroide1(){
 }
 
 setInterval(moverAsteroide1, 15);
+
+let verticalY=0;
+let direccionY=1;
+ 
+const altoPagina=window.innerHeight;
+const altoAsteroide2=asteroide2.offsetHeight;
+
+function moverAsteroide2(){
+    verticalY +=5 * direccionY;
+    asteroide2.style.marginTop=verticalY+"px";
+
+    if(verticalY + altoAsteroide2> altoPagina){
+        verticalY= altoPagina-altoAsteroide2;
+        direccionY=-1;
+    }else if(verticalY<0){
+        verticalY=0;
+        direccion=1;
+    }
+}
+
+setInterval(moverAsteroide2, 15);

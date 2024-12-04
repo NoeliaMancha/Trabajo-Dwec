@@ -73,13 +73,13 @@ body {
 }
 
 #asteroide2 {
-    top: 55%;
-    left: 55%;
+    top: 0;
+    left: 50%;
 }
 
 #asteroide3 {
-    top: 60%;
-    left: 60%;
+    top: 50%;
+    left: 30%;
 }
 
 .datos {
