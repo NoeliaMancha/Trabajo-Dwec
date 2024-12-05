@@ -14,7 +14,6 @@ body {
     bottom: 20%;
     left: 5.5%;
     width: 3.5%;
-    height: auto;
     border: 2px solid rgb(255, 255, 255);
 }
 #tierra {
@@ -22,39 +21,33 @@ body {
     bottom: 0;
     left: 0;
     width: 14%;
-    height: auto;
     border: 2px solid rgb(255, 255, 255);
 }
 #luna {
     position: absolute;
     left: 85%;
-    top: 10%;
+    top: 20%;
     right: 0;
     border: 2px solid rgb(255, 255, 255);
     width: 10%;
-    height: auto;
 }
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
-    width: auto;
 }
 #asteroide1 {
     width: 5%;
-    height: auto;
     border: 2px solid rgb(255, 255, 255);
     top: 50%;
     left: 0;
 }
 #asteroide2 {
     width: 6%;
-    height: auto;
     border: 2px solid rgb(255, 255, 255);
     top: 0;
     left: 50%;
 }
 #asteroide3 {
     width: 7%;
-    height: auto;
     border: 2px solid rgb(255, 255, 255);
     top: 50%;
     left: 30%;

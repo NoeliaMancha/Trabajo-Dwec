@@ -18,7 +18,8 @@ anchoLuna = luna.offsetWidth;
 altoLuna = luna.offsetHeight;
 
 anchoTierra = tierra.offsetWidth-85;
-altoTierra = tierra.offsetHeight-142;
+//hay que dejarlo como width
+altoTierra = tierra.offsetWidth-142;
 
 anchoAsteroide1=asteroide1.offsetWidth;
 altoAsteroide1=asteroide1.offsetHeight;
@@ -37,7 +38,7 @@ console.log(altoTierra);
 ObjNave = {
     //variables de la nave
     Velocidad: 1,
-    gravedad: 0.08,
+    gravedad: 0.3,
     X: 0,
     Y: 0,
 
@@ -90,7 +91,9 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowUp":
             if(!arriba){
                 arriba = setInterval(()=>{
-                    ObjNave.Velocidad += 0.01;
+                    if(ObjNave.Velocidad <= 9.99){
+                        ObjNave.Velocidad += 0.01;
+                    }
                     ObjNave.Y += 0.5 * ObjNave.Velocidad;
                     clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
@@ -110,7 +113,9 @@ document.addEventListener("keydown", function(teclas){
                     }else{
                         //movimiento
                         if(ObjNave.Y >= -135){
-                            ObjNave.Velocidad += 0.01;
+                            if(ObjNave.Velocidad <= 9.99){
+                                ObjNave.Velocidad += 0.01;
+                            }
                             ObjNave.Y -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
@@ -131,8 +136,10 @@ document.addEventListener("keydown", function(teclas){
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        if(ObjNave.X >= -anchoNave){
-                            ObjNave.Velocidad += 0.01;
+                        if(ObjNave.X >= -anchoNave*1.4){
+                            if(ObjNave.Velocidad <= 9.99){
+                                ObjNave.Velocidad += 0.01;
+                            }
                             ObjNave.X -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
@@ -153,7 +160,9 @@ document.addEventListener("keydown", function(teclas){
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        ObjNave.Velocidad += 0.01;
+                        if(ObjNave.Velocidad <= 9.99){
+                            ObjNave.Velocidad += 0.01;
+                        }
                         ObjNave.X += 0.5 * ObjNave.Velocidad;
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
@@ -203,7 +212,17 @@ document.addEventListener("keyup", function(teclas){
                 clearInterval(disminuirVelocidad); 
                 disminuirVelocidad = null;
             }else{
-                ObjNave.Velocidad -= 0.005;
+                if(ObjNave.Velocidad <= 2){
+                    ObjNave.Velocidad -= 0.02;
+                }else if(ObjNave.Velocidad <= 4){
+                    ObjNave.Velocidad -= 0.04;
+                }else if(ObjNave.Velocidad <= 6){
+                    ObjNave.Velocidad -= 0.06;
+                }else if(ObjNave.Velocidad <= 8){
+                    ObjNave.Velocidad -= 0.08;
+                }else if(ObjNave.Velocidad <= 10){
+                    ObjNave.Velocidad -= 0.1;
+                }
             }
         }, 10);
     }
