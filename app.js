@@ -45,7 +45,7 @@ ObjNave = {
         //gravedad
         intervalo = setInterval(()=>{
             //para fuera de la tierra
-            if(this.X >= anchoTierra){
+            if(this.X >= anchoTierra && this.Y <= altoTierra){
                 this.Y -= this.gravedad * ObjNave.Velocidad;
             //cuando esta encima de la tierra
             }else if(this.Y >= altoTierra){
@@ -54,7 +54,8 @@ ObjNave = {
                     this.Y -= this.gravedad * ObjNave.Velocidad;
                 }
             //si se pasa se recoloca
-            }else if(this.Y <= -142){
+            }
+            if(this.Y <= -142){
                 this.Y = -142;
             }
         }, 10);
@@ -68,6 +69,9 @@ ObjNave = {
     },
     moverNave(){
         intervalo3 = setInterval(()=>{
+            if(this.X >= 0 || this.Y >= 0){
+                
+            }
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
         });
