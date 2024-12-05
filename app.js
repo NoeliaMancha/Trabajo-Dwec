@@ -11,36 +11,50 @@ anchoPagina=window.innerWidth;
 altoPagina=window.innerHeight;
 
 //hitboxes "colisiones"
-const anchoNave = nave.offsetWidth
-const altoNave = nave.offsetHeight
+anchoNave = nave.offsetWidth;
+altoNave = nave.offsetHeight;
 
-const anchoLuna = luna.offsetWidth
-const altoLuna = luna.offsetHeight
+anchoLuna = luna.offsetWidth;
+altoLuna = luna.offsetHeight;
 
-const anchoTierra = tierra.offsetWidth
-const altoTierra = tierra.offsetHeight
+anchoTierra = tierra.offsetWidth-85;
+altoTierra = tierra.offsetHeight-142;
 
-const anchoAsteroide1=asteroide1.offsetWidth;
-const anchoAsteroide2=asteroide2.offsetWidth;
-const anchoAsteroide3=asteroide3.offsetWidth;
+anchoAsteroide1=asteroide1.offsetWidth;
+altoAsteroide1=asteroide1.offsetHeight;
+anchoAsteroide2=asteroide2.offsetWidth;
+altoAsteroide2=asteroide2.offsetHeight;
+anchoAsteroide3=asteroide3.offsetWidth;
+altoAsteroide3=asteroide3.offsetHeight;
+
+console.log(anchoNave);
+console.log(altoNave);
+console.log(anchoPagina);
+console.log(altoPagina);
+console.log(anchoTierra);
+console.log(altoTierra);
 
 ObjNave = {
     //variables de la nave
     Velocidad: 1,
     gravedad: 0.08,
     X: 0,
-    Y: -15,
+    Y: 0,
 
     iniciarGravedad(){
         //gravedad
         intervalo = setInterval(()=>{
-            if(this.Y >= -142 && this.X >= 140){
+            //para fuera de la tierra
+            if(this.X >= anchoTierra){
                 this.Y -= this.gravedad * ObjNave.Velocidad;
-            }
-            if(this.Y >= 75){
-                this.Y -= this.gravedad * ObjNave.Velocidad;
-            }
-            if(this.Y <= -142){
+            //cuando esta encima de la tierra
+            }else if(this.Y >= altoTierra){
+                if(this.Y <= 0){
+                }else{
+                    this.Y -= this.gravedad * ObjNave.Velocidad;
+                }
+            //si se pasa se recoloca
+            }else if(this.Y <= -142){
                 this.Y = -142;
             }
         }, 10);
@@ -86,12 +100,12 @@ document.addEventListener("keydown", function(teclas){
             if(!abajo){
                 abajo = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 120 && ObjNave.Y <= 75){
+                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        if(ObjNave.Y >= -140){
+                        if(ObjNave.Y >= -135){
                             ObjNave.Velocidad += 0.01;
                             ObjNave.Y -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
@@ -108,19 +122,16 @@ document.addEventListener("keydown", function(teclas){
             if(!izquierda){
                 izquierda = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 135 && ObjNave.Y <= 65){
+                    if(ObjNave.X <= anchoTierra && ObjNave.Y <= altoTierra-10){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        if(ObjNave.X >= 0){
+                        if(ObjNave.X >= -anchoNave){
                             ObjNave.Velocidad += 0.01;
                             ObjNave.X -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
-                            if(ObjNave.X <= 0){
-                                ObjNave.X = 0;
-                            }
                         }
                     }
                 }, 10);
@@ -133,7 +144,7 @@ document.addEventListener("keydown", function(teclas){
             if(!derecha){
                 derecha = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 120 && ObjNave.Y <= 65){
+                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
@@ -193,9 +204,13 @@ document.addEventListener("keyup", function(teclas){
         }, 10);
     }
 });
-ObjNave.iniciarGravedad();
-ObjNave.mostrarDatos();
-ObjNave.moverNave();
+
+//para que solo se ejecute cuando este cargado por completo
+document.addEventListener('DOMContentLoaded', function() {
+    ObjNave.iniciarGravedad();
+    ObjNave.mostrarDatos();
+    ObjNave.moverNave();
+});
 
 
 
@@ -318,8 +333,6 @@ setInterval(moverAsteroide1, 10);
 
 let verticalY=0;
 let direccionY=1;
- 
-const altoAsteroide2=asteroide2.offsetHeight;
 
 function moverAsteroide2(){
     verticalY +=5 * direccionY;
