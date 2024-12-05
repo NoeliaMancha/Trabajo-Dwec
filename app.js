@@ -7,8 +7,8 @@ asteroide2 = document.getElementById("asteroide2");
 asteroide3 = document.getElementById("asteroide3");
 
 //bordes de la ventana
-anchoPagina=window.innerWidth;
-altoPagina=window.innerHeight;
+anchoPagina = window.innerWidth -4;
+altoPagina = window.innerHeight;
 
 //hitboxes "colisiones"
 anchoNave = nave.offsetWidth;
@@ -27,13 +27,6 @@ anchoAsteroide2=asteroide2.offsetWidth;
 altoAsteroide2=asteroide2.offsetHeight;
 anchoAsteroide3=asteroide3.offsetWidth;
 altoAsteroide3=asteroide3.offsetHeight;
-
-console.log(anchoNave);
-console.log(altoNave);
-console.log(anchoPagina);
-console.log(altoPagina);
-console.log(anchoTierra);
-console.log(altoTierra);
 
 ObjNave = {
     //variables de la nave
@@ -65,7 +58,11 @@ ObjNave = {
         //mostrar coordenadas
         intervalo2 = setInterval(()=>{
             document.getElementById("cords").innerHTML = "X: " + this.X.toFixed(2) + "<br> Y: " + this.Y.toFixed(2);
-            document.getElementById("velocidad").innerHTML = this.Velocidad.toFixed(2) + " Km/s";
+            if(this.Velocidad <= 1){
+                document.getElementById("velocidad").innerHTML = "0.00 Km/s";
+            }else{
+                document.getElementById("velocidad").innerHTML = this.Velocidad.toFixed(2) + " Km/s";
+            }
         }, 10);
     },
     moverNave(){
@@ -94,7 +91,9 @@ document.addEventListener("keydown", function(teclas){
                     if(ObjNave.Velocidad <= 9.99){
                         ObjNave.Velocidad += 0.01;
                     }
-                    ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                    if(altoPagina >= ObjNave.Y + altoNave * 3.8){
+                        ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                    }
                     clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
                 }, 10);
@@ -163,7 +162,9 @@ document.addEventListener("keydown", function(teclas){
                         if(ObjNave.Velocidad <= 9.99){
                             ObjNave.Velocidad += 0.01;
                         }
-                        ObjNave.X += 0.5 * ObjNave.Velocidad;
+                        if(anchoPagina >= ObjNave.X + anchoNave*2.47){
+                            ObjNave.X += 0.5 * ObjNave.Velocidad;
+                        }
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }

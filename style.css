@@ -25,7 +25,7 @@ body {
 }
 #luna {
     position: absolute;
-    left: 85%;
+    right: 0%;
     top: 20%;
     right: 0;
     border: 2px solid rgb(255, 255, 255);
