@@ -1,7 +1,28 @@
-//variables a traves de id
+//variables
 nave = document.getElementById("nave");
 luna = document.getElementById("luna");
 tierra = document.getElementById("tierra");
+asteroide1 = document.getElementById("asteroide1");
+asteroide2 = document.getElementById("asteroide2");
+asteroide3 = document.getElementById("asteroide3");
+
+//bordes de la ventana
+anchoPagina=window.innerWidth;
+altoPagina=window.innerHeight;
+
+//hitboxes "colisiones"
+const anchoNave = nave.offsetWidth
+const altoNave = nave.offsetHeight
+
+const anchoLuna = luna.offsetWidth
+const altoLuna = luna.offsetHeight
+
+const anchoTierra = tierra.offsetWidth
+const altoTierra = tierra.offsetHeight
+
+const anchoAsteroide1=asteroide1.offsetWidth;
+const anchoAsteroide2=asteroide2.offsetWidth;
+const anchoAsteroide3=asteroide3.offsetWidth;
 
 ObjNave = {
     //variables de la nave
@@ -275,17 +296,10 @@ ObjNave.moverNave();
 
 
 
-
-
-asteroide1 = document.getElementById("asteroide1");
-asteroide2 = document.getElementById("asteroide2");
-asteroide3 = document.getElementById("asteroide3");
+//he subido algunas variables para que quede mas limpio el codigo
 
 let horizontalX=0;
 let direccionX=1;
-
-const anchoPagina=window.innerWidth;
-const anchoAsteroide1=asteroide1.offsetWidth;
 
 function moverAsteroide1(){
     horizontalX +=5 * direccionX;
@@ -300,12 +314,11 @@ function moverAsteroide1(){
     }
 }
 
-setInterval(moverAsteroide1, 15);
+setInterval(moverAsteroide1, 10);
 
 let verticalY=0;
 let direccionY=1;
  
-const altoPagina=window.innerHeight;
 const altoAsteroide2=asteroide2.offsetHeight;
 
 function moverAsteroide2(){
@@ -321,4 +334,4 @@ function moverAsteroide2(){
     }
 }
 
-setInterval(moverAsteroide2, 15);
+setInterval(moverAsteroide2, 10);

@@ -2,14 +2,12 @@ html, body {
     height: 98%;
     margin: 0;
 }
-
 body {
     background-image: url('fondo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
-
 #nave{
     z-index: 3;
     position:absolute;
@@ -19,68 +17,48 @@ body {
     height: auto;
     border: 2px solid rgb(255, 255, 255);
 }
-
 #tierra {
     position: absolute;
     bottom: 0;
     left: 0;
-}
-
-#tierra img {
     width: 14%;
     height: auto;
     border: 2px solid rgb(255, 255, 255);
 }
-
 #luna {
     position: absolute;
     left: 85%;
     top: 10%;
     right: 0;
     border: 2px solid rgb(255, 255, 255);
-}
-
-#luna img {
-    width: 100%;
+    width: 10%;
     height: auto;
 }
-
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
     width: auto;
 }
-
-#asteroide1 img {
-    width: 20%;
-    height: auto;
-    border: 2px solid rgb(255, 255, 255);
-}
-#asteroide2 img {
-    width: 30%;
-    height: auto;
-    border: 2px solid rgb(255, 255, 255);
-}
-#asteroide3 img {
-    width: 40%;
-    height: auto;
-    border: 2px solid rgb(255, 255, 255);
-}
-
 #asteroide1 {
+    width: 5%;
+    height: auto;
+    border: 2px solid rgb(255, 255, 255);
     top: 50%;
     left: 0;
 }
-
 #asteroide2 {
+    width: 6%;
+    height: auto;
+    border: 2px solid rgb(255, 255, 255);
     top: 0;
     left: 50%;
 }
-
 #asteroide3 {
+    width: 7%;
+    height: auto;
+    border: 2px solid rgb(255, 255, 255);
     top: 50%;
     left: 30%;
 }
-
 .datos {
     position: absolute;
     right: 3%;
