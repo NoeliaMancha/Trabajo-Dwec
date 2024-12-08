@@ -1,23 +1,53 @@
-//variables a traves de id
+//variables
 nave = document.getElementById("nave");
 luna = document.getElementById("luna");
 tierra = document.getElementById("tierra");
+asteroide1 = document.getElementById("asteroide1");
+asteroide2 = document.getElementById("asteroide2");
+asteroide3 = document.getElementById("asteroide3");
+
+//bordes de la ventana
+anchoPagina = window.innerWidth -4;
+altoPagina = window.innerHeight;
+
+//hitboxes "colisiones"
+anchoNave = nave.offsetWidth;
+altoNave = nave.offsetHeight;
+
+anchoLuna = luna.offsetWidth;
+altoLuna = luna.offsetHeight;
+
+anchoTierra = tierra.offsetWidth-85;
+//hay que dejarlo como width
+altoTierra = tierra.offsetWidth-142;
+
+anchoAsteroide1=asteroide1.offsetWidth;
+altoAsteroide1=asteroide1.offsetHeight;
+anchoAsteroide2=asteroide2.offsetWidth;
+altoAsteroide2=asteroide2.offsetHeight;
+anchoAsteroide3=asteroide3.offsetWidth;
+altoAsteroide3=asteroide3.offsetHeight;
 
 ObjNave = {
     //variables de la nave
     Velocidad: 1,
-    gravedad: 0.08,
+    gravedad: 0.3,
     X: 0,
-    Y: -15,
+    Y: 0,
 
     iniciarGravedad(){
         //gravedad
         intervalo = setInterval(()=>{
-            if(this.Y >= -142 && this.X >= 140){
+            //para fuera de la tierra
+            if(this.X >= anchoTierra && this.Y <= altoTierra){
                 this.Y -= this.gravedad * ObjNave.Velocidad;
-            }
-            if(this.Y >= 75){
-                this.Y -= this.gravedad * ObjNave.Velocidad;
+            //cuando esta encima de la tierra
+            }else if(this.Y >= altoTierra){
+                if(this.Y <= 0){
+                }else{
+                    this.Y -= this.gravedad * ObjNave.Velocidad;
+                }
+            //si se pasa se recoloca
             }
             if(this.Y <= -142){
                 this.Y = -142;
@@ -28,11 +58,18 @@ ObjNave = {
         //mostrar coordenadas
         intervalo2 = setInterval(()=>{
             document.getElementById("cords").innerHTML = "X: " + this.X.toFixed(2) + "<br> Y: " + this.Y.toFixed(2);
-            document.getElementById("velocidad").innerHTML = this.Velocidad.toFixed(2) + " Km/s";
+            if(this.Velocidad <= 1){
+                document.getElementById("velocidad").innerHTML = "0.00 Km/s";
+            }else{
+                document.getElementById("velocidad").innerHTML = this.Velocidad.toFixed(2) + " Km/s";
+            }
         }, 10);
     },
     moverNave(){
         intervalo3 = setInterval(()=>{
+            if(this.X >= 0 || this.Y >= 0){
+                
+            }
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
         });
@@ -51,8 +88,12 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowUp":
             if(!arriba){
                 arriba = setInterval(()=>{
-                    ObjNave.Velocidad += 0.01;
-                    ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                    if(ObjNave.Velocidad <= 9.99){
+                        ObjNave.Velocidad += 0.01;
+                    }
+                    if(altoPagina >= ObjNave.Y + altoNave * 3.8){
+                        ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                    }
                     clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
                 }, 10);
@@ -65,13 +106,15 @@ document.addEventListener("keydown", function(teclas){
             if(!abajo){
                 abajo = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 120 && ObjNave.Y <= 75){
+                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        if(ObjNave.Y >= -140){
-                            ObjNave.Velocidad += 0.01;
+                        if(ObjNave.Y >= -135){
+                            if(ObjNave.Velocidad <= 9.99){
+                                ObjNave.Velocidad += 0.01;
+                            }
                             ObjNave.Y -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
@@ -87,19 +130,18 @@ document.addEventListener("keydown", function(teclas){
             if(!izquierda){
                 izquierda = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 135 && ObjNave.Y <= 65){
+                    if(ObjNave.X <= anchoTierra && ObjNave.Y <= altoTierra-10){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        if(ObjNave.X >= 0){
-                            ObjNave.Velocidad += 0.01;
+                        if(ObjNave.X >= -anchoNave*1.4){
+                            if(ObjNave.Velocidad <= 9.99){
+                                ObjNave.Velocidad += 0.01;
+                            }
                             ObjNave.X -= 0.5 * ObjNave.Velocidad;
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
-                            if(ObjNave.X <= 0){
-                                ObjNave.X = 0;
-                            }
                         }
                     }
                 }, 10);
@@ -112,13 +154,17 @@ document.addEventListener("keydown", function(teclas){
             if(!derecha){
                 derecha = setInterval(()=>{
                     //colision con la tierra
-                    if(ObjNave.X <= 120 && ObjNave.Y <= 65){
+                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
                         //movimiento
-                        ObjNave.Velocidad += 0.01;
-                        ObjNave.X += 0.5 * ObjNave.Velocidad;
+                        if(ObjNave.Velocidad <= 9.99){
+                            ObjNave.Velocidad += 0.01;
+                        }
+                        if(anchoPagina >= ObjNave.X + anchoNave*2.47){
+                            ObjNave.X += 0.5 * ObjNave.Velocidad;
+                        }
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }
@@ -167,15 +213,28 @@ document.addEventListener("keyup", function(teclas){
                 clearInterval(disminuirVelocidad); 
                 disminuirVelocidad = null;
             }else{
-                ObjNave.Velocidad -= 0.005;
+                if(ObjNave.Velocidad <= 2){
+                    ObjNave.Velocidad -= 0.02;
+                }else if(ObjNave.Velocidad <= 4){
+                    ObjNave.Velocidad -= 0.04;
+                }else if(ObjNave.Velocidad <= 6){
+                    ObjNave.Velocidad -= 0.06;
+                }else if(ObjNave.Velocidad <= 8){
+                    ObjNave.Velocidad -= 0.08;
+                }else if(ObjNave.Velocidad <= 10){
+                    ObjNave.Velocidad -= 0.1;
+                }
             }
         }, 10);
     }
 });
-ObjNave.iniciarGravedad();
-ObjNave.mostrarDatos();
-ObjNave.moverNave();
 
+//para que solo se ejecute cuando este cargado por completo
+document.addEventListener('DOMContentLoaded', function() {
+    ObjNave.iniciarGravedad();
+    ObjNave.mostrarDatos();
+    ObjNave.moverNave();
+});
 
 
 
@@ -276,16 +335,10 @@ ObjNave.moverNave();
 
 
 
-
-asteroide1 = document.getElementById("asteroide1");
-asteroide2 = document.getElementById("asteroide2");
-asteroide3 = document.getElementById("asteroide3");
+//he subido algunas variables para que quede mas limpio el codigo
 
 let horizontalX=0;
 let direccionX=1;
-
-const anchoPagina=window.innerWidth;
-const anchoAsteroide1=asteroide1.offsetWidth;
 
 function moverAsteroide1(){
     horizontalX +=5 * direccionX;
@@ -300,13 +353,10 @@ function moverAsteroide1(){
     }
 }
 
-setInterval(moverAsteroide1, 15);
+setInterval(moverAsteroide1, 10);
 
 let verticalY=0;
 let direccionY=1;
- 
-const altoPagina=window.innerHeight;
-const altoAsteroide2=asteroide2.offsetHeight;
 
 function moverAsteroide2(){
     verticalY +=5 * direccionY;
@@ -321,4 +371,4 @@ function moverAsteroide2(){
     }
 }
 
-setInterval(moverAsteroide2, 15);
+setInterval(moverAsteroide2, 10);
