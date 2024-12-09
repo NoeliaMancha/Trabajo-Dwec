@@ -12,20 +12,28 @@ altoPagina = window.innerHeight;
 
 //hitboxes "colisiones"
 anchoNave = nave.offsetWidth;
-altoNave = nave.offsetHeight;
+altoNave = nave.offsetWidth;
 
 anchoLuna = luna.offsetWidth;
-altoLuna = luna.offsetHeight;
+altoLuna = luna.offsetWidth;
 
 anchoTierra = tierra.offsetWidth-85;
-//hay que dejarlo como width
 altoTierra = tierra.offsetWidth-142;
 
 anchoAsteroide1=asteroide1.offsetWidth;
-altoAsteroide1=asteroide1.offsetHeight;
+altoAsteroide1=asteroide1.offsetWidth;
 anchoAsteroide2=asteroide2.offsetWidth;
+<<<<<<< HEAD
 altoAsteroide2=asteroide2.offsetHeight;
 
+=======
+altoAsteroide2=asteroide2.offsetWidth;
+anchoAsteroide3=asteroide3.offsetWidth;
+altoAsteroide3=asteroide3.offsetWidth;
+
+console.log(altoPagina);
+console.log(anchoPagina);
+>>>>>>> be86c5ea8f7a8918800f87d63a591378fca7eabe
 
 ObjNave = {
     //variables de la nave
@@ -65,12 +73,20 @@ ObjNave = {
         }, 10);
     },
     moverNave(){
+        salirTierra = false;
         intervalo3 = setInterval(()=>{
-            if(this.X >= 0 || this.Y >= 0){
-                
-            }
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
+
+            if(salirTierra == true){
+                if(ObjNave.Velocidad <= 1){
+                    nave.src = 'naveOkrec.png';
+                }else if(ObjNave.Velocidad <= 5 && ObjNave.Velocidad >= 1){
+                    nave.src = 'naveOkpeq.png';
+                }else{
+                    nave.src = 'naveok.png';
+                }
+            }
         });
     }
 }
@@ -90,11 +106,16 @@ document.addEventListener("keydown", function(teclas){
                     if(ObjNave.Velocidad <= 9.99){
                         ObjNave.Velocidad += 0.01;
                     }
-                    if(altoPagina >= ObjNave.Y + altoNave * 3.8){
+                    //techo
+                    if(altoPagina >= ObjNave.Y + altoNave * 3.5){
                         ObjNave.Y += 0.5 * ObjNave.Velocidad;
                     }
                     clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
+                    if(ObjNave.Y >= altoTierra){
+                        nave.src = 'naveOkpeq.png';
+                        salirTierra = true;
+                    }
                 }, 10);
             }
             break;
@@ -161,8 +182,8 @@ document.addEventListener("keydown", function(teclas){
                         if(ObjNave.Velocidad <= 9.99){
                             ObjNave.Velocidad += 0.01;
                         }
-                        //techo
-                        if(anchoPagina >= ObjNave.X + anchoNave*3.47){
+                        //pared
+                        if(anchoPagina >= ObjNave.X + anchoNave*2.46){
                             ObjNave.X += 0.5 * ObjNave.Velocidad;
                         }
                         clearInterval(disminuirVelocidad); 
@@ -353,13 +374,11 @@ function moverAsteroide1(){
     }
 }
 
-setInterval(moverAsteroide1, 10);
-
 function moverAsteroide2(){
     verticalY +=5 * direccionY;
     asteroide2.style.marginTop=verticalY+"px";
 
-    if(verticalY + altoAsteroide2> altoPagina){
+    if(verticalY + altoAsteroide2> altoPagina -4){
         verticalY= altoPagina-altoAsteroide2;
         direccionY=-1;
     }else if(verticalY<0){
@@ -368,6 +387,7 @@ function moverAsteroide2(){
     }
 }
 
+setInterval(moverAsteroide1, 10);
 setInterval(moverAsteroide2, 10);
 
     let horizontalX3=0;
