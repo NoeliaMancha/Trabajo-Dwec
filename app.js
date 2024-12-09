@@ -25,8 +25,7 @@ anchoAsteroide1=asteroide1.offsetWidth;
 altoAsteroide1=asteroide1.offsetHeight;
 anchoAsteroide2=asteroide2.offsetWidth;
 altoAsteroide2=asteroide2.offsetHeight;
-anchoAsteroide3=asteroide3.offsetWidth;
-altoAsteroide3=asteroide3.offsetHeight;
+
 
 ObjNave = {
     //variables de la nave
@@ -336,10 +335,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-//he subido algunas variables para que quede mas limpio el codigo
-
 let horizontalX=0;
 let direccionX=1;
+let verticalY=0;
+let direccionY=1;
 
 function moverAsteroide1(){
     horizontalX +=5 * direccionX;
@@ -356,9 +355,6 @@ function moverAsteroide1(){
 
 setInterval(moverAsteroide1, 10);
 
-let verticalY=0;
-let direccionY=1;
-
 function moverAsteroide2(){
     verticalY +=5 * direccionY;
     asteroide2.style.marginTop=verticalY+"px";
@@ -373,3 +369,50 @@ function moverAsteroide2(){
 }
 
 setInterval(moverAsteroide2, 10);
+
+    let horizontalX3=0;
+    let direccionX3=1;
+    let verticalY3=0;
+    let direccionY3=1;
+
+    let anchoPaginaA3 = window.innerWidth - (window.innerWidth*0.3);
+    let altoPaginaA3 = window.innerHeight - (window.innerHeight*0.5);
+
+    anchoAsteroide3=asteroide3.offsetWidth;
+    altoAsteroide3=asteroide3.offsetHeight; 
+
+    horizontalX3 = (anchoPaginaA3 - anchoAsteroide3) / 2; // Centrar horizontalmente
+    verticalY3 = (altoPaginaA3 - altoAsteroide3) / 2; // Centrar verticalmente
+
+    asteroide3.style.marginLeft = horizontalX3 + "px"; 
+    asteroide3.style.marginTop = verticalY3 + "px"; 
+
+function moverAsteroide3(){
+    horizontalX3 +=5 * direccionX3;
+    verticalY3 +=5 * direccionY3;
+
+    if(verticalY3 + altoAsteroide3> altoPaginaA3){
+        verticalY3= altoPaginaA3-altoAsteroide3;
+        direccionY3=-1;
+    }
+
+    if(horizontalX3<0){
+        horizontalX3=0;
+        direccionX3=1;
+    }
+
+    if(verticalY3<0){
+        verticalY3=0;
+        direccionY3=1;
+    }
+
+    if(horizontalX3 + anchoAsteroide3> anchoPaginaA3){
+        horizontalX3=anchoPaginaA3-anchoAsteroide3;
+        direccionX3=-1
+    }
+
+    asteroide3.style.marginLeft = horizontalX3 + "px"; 
+    asteroide3.style.marginTop = verticalY3 + "px";
+}
+
+setInterval(moverAsteroide3, 10);
