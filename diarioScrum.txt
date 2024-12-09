@@ -30,16 +30,16 @@ Dia 2:
     -Pequeñas modificaciones en el html y css para una mejor visibilidad de las coordenadas.
 
 -Noelia : 
-	- Ha agregado las imágenes de fondo, la nave y los 3 asteroides.
-	- En HTML:
-		- Ha realizado los cambios necesarios para poder añadir las imágenes que faltaban.
-	- En Css:
-		- Creación del css. 
-		- Ha puesto la imagen de fondo.
-		- Ha modificado los tamaños de todos los elementos.
-		- Ha situado la luna y la tierra en el lugar que les corresponden.
-	- En Photoshop:
-		- Ha retocado las fotos para que se ajustasen a lo que necesitábamos, dejándolas sin fondo y recortando lo que no nos interesaba.
+	-Ha agregado las imágenes de fondo, la nave y los 3 asteroides.
+	-En HTML:
+		-Ha realizado los cambios necesarios para poder añadir las imágenes que faltaban.
+	-En Css:
+		-Creación del css. 
+		-Ha puesto la imagen de fondo.
+		-Ha modificado los tamaños de todos los elementos.
+		-Ha situado la luna y la tierra en el lugar que les corresponden.
+	-En Photoshop:
+		-Ha retocado las fotos para que se ajustasen a lo que necesitábamos, dejándolas sin fondo y recortando lo que no nos interesaba.
 
 Dia 4:
 
@@ -52,8 +52,8 @@ Objetivos planeados:
     -Tratar de mover la nave con las teclas.
 
 Resultados finales:
-    - Iván ha hecho correcciones respecto a las colisiones de la nave al pulsar las teclas.
-    - Noelia ha conseguido mover 2 asteroides de distinta manera.
+    -Iván ha hecho correcciones respecto a las colisiones de la nave al pulsar las teclas.
+    -Noelia ha conseguido mover 2 asteroides de distinta manera.
 
 Dia 5:
 
@@ -61,4 +61,4 @@ Objetivos planeados:
     -Cambiar las imagenes de la nave según diversos comportamientos que realice la nave.
 
 Resultados finales:
-    -
+    -Iván ha conseguido que la imagen de la nave cambie segun diversos eventos

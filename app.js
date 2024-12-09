@@ -67,11 +67,18 @@ ObjNave = {
     },
     moverNave(){
         intervalo3 = setInterval(()=>{
-            if(this.X >= 0 || this.Y >= 0){
-                
-            }
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
+
+            if(salirTierra == true){
+                if(ObjNave.Velocidad <= 1){
+                    nave.src = 'naveOkrec.png';
+                }else if(ObjNave.Velocidad <= 5 && ObjNave.Velocidad >= 1){
+                    nave.src = 'naveOkpeq.png';
+                }else{
+                    nave.src = 'naveok.png';
+                }
+            }
         });
     }
 }
@@ -96,6 +103,10 @@ document.addEventListener("keydown", function(teclas){
                     }
                     clearInterval(disminuirVelocidad);
                     disminuirVelocidad = null;
+                    if(ObjNave.Y >= altoTierra){
+                        nave.src = 'naveOkpeq.png';
+                        salirTierra = true;
+                    }
                 }, 10);
             }
             break;
