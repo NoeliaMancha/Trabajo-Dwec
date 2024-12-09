@@ -162,7 +162,8 @@ document.addEventListener("keydown", function(teclas){
                         if(ObjNave.Velocidad <= 9.99){
                             ObjNave.Velocidad += 0.01;
                         }
-                        if(anchoPagina >= ObjNave.X + anchoNave*2.47){
+                        //techo
+                        if(anchoPagina >= ObjNave.X + anchoNave*3.47){
                             ObjNave.X += 0.5 * ObjNave.Velocidad;
                         }
                         clearInterval(disminuirVelocidad); 
