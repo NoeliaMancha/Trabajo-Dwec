@@ -361,8 +361,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-setInterval(moverAsteroide1, 10);
-setInterval(moverAsteroide2, 10);
 
 
 let horizontalX=0;
@@ -408,7 +406,7 @@ setInterval(moverAsteroide2, 10);
     let altoPaginaA3 = window.innerHeight - (window.innerHeight*0.5);
 
     anchoAsteroide3=asteroide3.offsetWidth;
-    altoAsteroide3=asteroide3.offsetHeight; 
+    altoAsteroide3=asteroide3.offsetHeight;
 
     horizontalX3 = (anchoPaginaA3 - anchoAsteroide3) / 2; // Centrar horizontalmente
     verticalY3 = (altoPaginaA3 - altoAsteroide3) / 2; // Centrar verticalmente
