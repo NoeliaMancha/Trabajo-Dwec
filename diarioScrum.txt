@@ -51,6 +51,14 @@ Objetivos planeados:
     -Tratar de mover los asteroides de determinada forma.
     -Tratar de mover la nave con las teclas.
 
-Objetivos finales:
+Resultados finales:
     - Iván ha hecho correcciones respecto a las colisiones de la nave al pulsar las teclas.
     - Noelia ha conseguido mover 2 asteroides de distinta manera.
+
+Dia 5:
+
+Objetivos planeados:
+    -Cambiar las imagenes de la nave según diversos comportamientos que realice la nave.
+
+Resultados finales:
+    -
