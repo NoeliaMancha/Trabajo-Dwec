@@ -23,17 +23,8 @@ altoTierra = tierra.offsetWidth-142;
 anchoAsteroide1=asteroide1.offsetWidth;
 altoAsteroide1=asteroide1.offsetWidth;
 anchoAsteroide2=asteroide2.offsetWidth;
-<<<<<<< HEAD
 altoAsteroide2=asteroide2.offsetHeight;
 
-=======
-altoAsteroide2=asteroide2.offsetWidth;
-anchoAsteroide3=asteroide3.offsetWidth;
-altoAsteroide3=asteroide3.offsetWidth;
-
-console.log(altoPagina);
-console.log(anchoPagina);
->>>>>>> be86c5ea8f7a8918800f87d63a591378fca7eabe
 
 ObjNave = {
     //variables de la nave
