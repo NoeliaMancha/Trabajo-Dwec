@@ -379,7 +379,7 @@ function moverAsteroide2(){
         direccionY=-1;
     }else if(verticalY<0){
         verticalY=0;
-        direccion=1;
+        direccionY=1;
     }
 }
 
