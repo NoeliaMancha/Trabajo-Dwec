@@ -12,21 +12,23 @@ altoPagina = window.innerHeight;
 
 //hitboxes "colisiones"
 anchoNave = nave.offsetWidth;
-altoNave = nave.offsetHeight;
+altoNave = nave.offsetWidth;
 
 anchoLuna = luna.offsetWidth;
-altoLuna = luna.offsetHeight;
+altoLuna = luna.offsetWidth;
 
 anchoTierra = tierra.offsetWidth-85;
-//hay que dejarlo como width
 altoTierra = tierra.offsetWidth-142;
 
 anchoAsteroide1=asteroide1.offsetWidth;
-altoAsteroide1=asteroide1.offsetHeight;
+altoAsteroide1=asteroide1.offsetWidth;
 anchoAsteroide2=asteroide2.offsetWidth;
-altoAsteroide2=asteroide2.offsetHeight;
+altoAsteroide2=asteroide2.offsetWidth;
 anchoAsteroide3=asteroide3.offsetWidth;
-altoAsteroide3=asteroide3.offsetHeight;
+altoAsteroide3=asteroide3.offsetWidth;
+
+console.log(anchoAsteroide2);
+console.log(altoAsteroide2);
 
 ObjNave = {
     //variables de la nave
@@ -66,6 +68,7 @@ ObjNave = {
         }, 10);
     },
     moverNave(){
+        salirTierra = false;
         intervalo3 = setInterval(()=>{
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
@@ -365,8 +368,6 @@ function moverAsteroide1(){
     }
 }
 
-setInterval(moverAsteroide1, 10);
-
 let verticalY=0;
 let direccionY=1;
 
@@ -374,7 +375,7 @@ function moverAsteroide2(){
     verticalY +=5 * direccionY;
     asteroide2.style.marginTop=verticalY+"px";
 
-    if(verticalY + altoAsteroide2> altoPagina){
+    if(verticalY + altoAsteroide2> altoPagina -4){
         verticalY= altoPagina-altoAsteroide2;
         direccionY=-1;
     }else if(verticalY<0){
@@ -383,4 +384,5 @@ function moverAsteroide2(){
     }
 }
 
+setInterval(moverAsteroide1, 10);
 setInterval(moverAsteroide2, 10);
