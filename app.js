@@ -27,8 +27,8 @@ altoAsteroide2=asteroide2.offsetWidth;
 anchoAsteroide3=asteroide3.offsetWidth;
 altoAsteroide3=asteroide3.offsetWidth;
 
-console.log(anchoAsteroide2);
-console.log(altoAsteroide2);
+console.log(altoPagina);
+console.log(anchoPagina);
 
 ObjNave = {
     //variables de la nave
@@ -101,7 +101,8 @@ document.addEventListener("keydown", function(teclas){
                     if(ObjNave.Velocidad <= 9.99){
                         ObjNave.Velocidad += 0.01;
                     }
-                    if(altoPagina >= ObjNave.Y + altoNave * 3.8){
+                    //techo
+                    if(altoPagina >= ObjNave.Y + altoNave * 3.5){
                         ObjNave.Y += 0.5 * ObjNave.Velocidad;
                     }
                     clearInterval(disminuirVelocidad);
@@ -176,8 +177,8 @@ document.addEventListener("keydown", function(teclas){
                         if(ObjNave.Velocidad <= 9.99){
                             ObjNave.Velocidad += 0.01;
                         }
-                        //techo
-                        if(anchoPagina >= ObjNave.X + anchoNave*3.47){
+                        //pared
+                        if(anchoPagina >= ObjNave.X + anchoNave*2.46){
                             ObjNave.X += 0.5 * ObjNave.Velocidad;
                         }
                         clearInterval(disminuirVelocidad); 
