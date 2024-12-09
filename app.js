@@ -23,8 +23,16 @@ altoTierra = tierra.offsetWidth-142;
 anchoAsteroide1=asteroide1.offsetWidth;
 altoAsteroide1=asteroide1.offsetWidth;
 anchoAsteroide2=asteroide2.offsetWidth;
-altoAsteroide2=asteroide2.offsetHeight;
+altoAsteroide2=asteroide2.offsetWidth;
+anchoAsteroide3=asteroide3.offsetWidth;
+altoAsteroide3=asteroide3.offsetWidth;
 
+console.log(altoPagina);
+console.log(anchoPagina); 
+console.log(altoNave); 
+console.log(anchoNave); 
+console.log(altoLuna); 
+console.log(anchoLuna); 
 
 ObjNave = {
     //variables de la nave
@@ -81,7 +89,8 @@ ObjNave = {
         });
     }
 }
-
+console.log(ObjNave.Y + altoNave * 3.5)
+console.log(altoPagina*20/100 - altoLuna)
 //creacion de los intervalos
 let arriba, abajo, izquierda, derecha;
 let disminuirVelocidad;
@@ -118,6 +127,10 @@ document.addEventListener("keydown", function(teclas){
                 abajo = setInterval(()=>{
                     //colision con la tierra
                     if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
+                    //colision luna
+                    }else if(ObjNave.Y <= altoLuna){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
@@ -166,6 +179,14 @@ document.addEventListener("keydown", function(teclas){
                 derecha = setInterval(()=>{
                     //colision con la tierra
                     if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
+                        clearInterval(disminuirVelocidad); 
+                        disminuirVelocidad = null;
+                    //colision luna
+                    }else if(
+                        ObjNave.X + anchoNave*2.46 >= anchoPagina - anchoLuna && 
+                        ObjNave.Y + altoNave * 3.5 >= altoPagina - altoPagina*0.2 - altoLuna &&
+                        ObjNave.Y + altoNave * 3.5 <= altoPagina - altoPagina*0.2 + altoNave
+                        ){
                         clearInterval(disminuirVelocidad); 
                         disminuirVelocidad = null;
                     }else{
@@ -340,11 +361,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-
+setInterval(moverAsteroide1, 10);
+setInterval(moverAsteroide2, 10);
 
 
 let horizontalX=0;
