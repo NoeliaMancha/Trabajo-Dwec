@@ -7,7 +7,7 @@ Proyecto Nave
 Dia 1:
 
 - Investigación para averiguar como usar github.
-- Creacion del repositorio y vinculacion con github desktop.
+- Creación del repositorio y vinculación con github desktop.
 
 - Creación de los 3 archivos.
 - Noelia ha creado la base para el HTML.
@@ -17,15 +17,15 @@ Dia 2:
 
 -Iván ha hecho modificaciones en el js, html y css incluyendo:
     -En js:
-        -Creacion del objeto nave.
-        -Creacion de las variable "gravedad", "X" e "Y".
-        -Funcion gravedad, que va restando constantemente al eje "Y", excepto si "Y" es 0 o menos.
-        -Funcion mostrarDatos que va mostrando las coordenadas de los ejes constantemente.
-        -Creacion de la funcion "teclas", que detecta la tecla que pulsa el usuario.
-        -En la funcion "teclas" se utiliza un switch para alternar entre las teclas que pulsa el usuario.
-        -Casos para arriba, abajo, izquierda y derecha, caso default si la tecla pulsada no tiene funcion.
-        -Cada tecla activa un intervalo que se detiene a traves de otra funcion con keyUp.
-        -Creacion y implementacion del multiplicador "Velocidad".
+        -Creación del objeto nave.
+        -Creación de las variable "gravedad", "X" e "Y".
+        -Función gravedad, que va restando constantemente al eje "Y", excepto si "Y" es 0 o menos.
+        -Función mostrarDatos que va mostrando las coordenadas de los ejes constantemente.
+        -Creación de la función "teclas", que detecta la tecla que pulsa el usuario.
+        -En la función "teclas" se utiliza un switch para alternar entre las teclas que pulsa el usuario.
+        -Casos para arriba, abajo, izquierda y derecha, caso default si la tecla pulsada no tiene función.
+        -Cada tecla activa un intervalo que se detiene a través de otra función con keyUp.
+        -Creación y implementación del multiplicador "Velocidad".
 
     -Pequeñas modificaciones en el html y css para una mejor visibilidad de las coordenadas.
 
@@ -44,8 +44,8 @@ Dia 2:
 Dia 4:
 
 Objetivos realizados:
-    -Noelia ha hecho cambios en la posicion de las imágenes del css
-    -Iván ha puesto bordes a todas las imagenes para determinar la "hitbox" temporalmente;
+    -Noelia ha hecho cambios en la posición de las imágenes del css
+    -Iván ha puesto bordes a todas las imágenes para determinar la "hitbox" temporalmente;
 
 Objetivos planeados:
     -Tratar de mover los asteroides de determinada forma.
@@ -53,12 +53,15 @@ Objetivos planeados:
 
 Resultados finales:
     -Iván ha hecho correcciones respecto a las colisiones de la nave al pulsar las teclas.
-    -Noelia ha conseguido mover 2 asteroides de distinta manera.
+    -Noelia ha conseguido mover 2 asteroides de distinta manera, uno que va de arriba-abajo y otro que va de derecha a izquierda.
 
 Dia 5:
 
 Objetivos planeados:
-    -Cambiar las imagenes de la nave según diversos comportamientos que realice la nave.
+    -Cambiar las imágenes de la nave según diversos comportamientos que realice la nave.
+    -Realizar los movimientos aleatorios del asteroide número 3.
 
 Resultados finales:
-    -Iván ha conseguido que la imagen de la nave cambie segun diversos eventos
+    -Iván ha conseguido que la imagen de la nave cambie segun diversos eventos.
+    -Noelia ha conseguido realizar los movimientos aleatorios del asteroide 3, aunque faltan realizar unos cambios puesto que se des encuadra de la pantalla. También ha realizado
+     los cambios necesarios en las imágenes a través de photoshop de la tierra, la luna y el cohete para que cuadren mejor con la experiencia de usuario que esperamos.
