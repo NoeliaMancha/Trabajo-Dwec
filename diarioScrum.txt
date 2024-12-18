@@ -65,3 +65,10 @@ Resultados finales:
     -Iván ha conseguido que la imagen de la nave cambie segun diversos eventos.
     -Noelia ha conseguido realizar los movimientos aleatorios del asteroide 3, aunque faltan realizar unos cambios puesto que se des encuadra de la pantalla. También ha realizado
      los cambios necesarios en las imágenes a través de photoshop de la tierra, la luna y el cohete para que cuadren mejor con la experiencia de usuario que esperamos.
+
+Dia 6:
+Objetivos planeados:
+	- Corregir los errores del asteroide3.
+
+Resultados finales:
+	- Noelia ha conseguido corregir los dos errores que había con el asteroide 3, uno era que se salía de los límites de la pantalla y el otro que no chocaba con los límites de la pantalla. Ambos errores han quedado corregidos.
