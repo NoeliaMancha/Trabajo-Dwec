@@ -69,6 +69,8 @@ Resultados finales:
 Dia 6:
 Objetivos planeados:
 	- Corregir los errores del asteroide3.
+    - Crear una colision entre la nave y la luna
 
 Resultados finales:
 	- Noelia ha conseguido corregir los dos errores que había con el asteroide 3, uno era que se salía de los límites de la pantalla y el otro que no chocaba con los límites de la pantalla. Ambos errores han quedado corregidos.
+    - Iván ha conseguido crear una colision entre la luna y la tierra
