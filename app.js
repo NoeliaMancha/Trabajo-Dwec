@@ -402,8 +402,8 @@ setInterval(moverAsteroide2, 10);
     let verticalY3=0;
     let direccionY3=1;
 
-    let anchoPaginaA3 = window.innerWidth - (window.innerWidth*0.3);
-    let altoPaginaA3 = window.innerHeight - (window.innerHeight*0.5);
+    let anchoPaginaA3 = window.innerWidth;
+    let altoPaginaA3 = window.innerHeight;
 
     anchoAsteroide3=asteroide3.offsetWidth;
     altoAsteroide3=asteroide3.offsetHeight;
@@ -435,7 +435,7 @@ function moverAsteroide3(){
 
     if(horizontalX3 + anchoAsteroide3> anchoPaginaA3){
         horizontalX3=anchoPaginaA3-anchoAsteroide3;
-        direccionX3=-1
+        direccionX3=-1;
     }
 
     asteroide3.style.marginLeft = horizontalX3 + "px"; 
