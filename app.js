@@ -389,6 +389,8 @@ function moverAsteroide1(){
         horizontalX=0;
         direccionX=1;
     }
+
+    console.log("Horizontal asteroide 1 = "+horizontalX);
 }
 
 function moverAsteroide2(){
@@ -402,6 +404,8 @@ function moverAsteroide2(){
         verticalY=0;
         direccionY=1;
     }
+
+    console.log("Vertical asteroide 2 = "+verticalY);
 }
 
 setInterval(moverAsteroide1, 10);
@@ -450,6 +454,11 @@ function moverAsteroide3(){
 
     asteroide3.style.marginLeft = horizontalX3 + "px"; 
     asteroide3.style.marginTop = verticalY3 + "px";
+
+    console.log("Horizontal asteroide 3 = "+horizontalX3);
+    console.log("Vertical asteroide 3 = "+verticalY3);
 }
 
 setInterval(moverAsteroide3, 10);
+
+
