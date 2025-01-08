@@ -5,6 +5,7 @@ tierra = document.getElementById("tierra");
 asteroide1 = document.getElementById("asteroide1");
 asteroide2 = document.getElementById("asteroide2");
 asteroide3 = document.getElementById("asteroide3");
+condicionExplosion = false;
 
 //bordes de la ventana
 anchoPagina = window.innerWidth -4;
@@ -44,22 +45,37 @@ ObjNave = {
     iniciarGravedad(){
         //gravedad
         intervalo = setInterval(()=>{
-            //para fuera de la tierra
-            if(ObjNave.Y <= altoPagina - altoNave * 8.7 || 
-                ObjNave.Y >= altoPagina - altoNave * 5 || 
-                ObjNave.X <= anchoPagina - anchoLuna * 1.8){
-                if(this.X >= anchoTierra && this.Y <= altoTierra){
-                    this.Y -= this.gravedad * ObjNave.Velocidad;
-                //cuando esta encima de la tierra
-                }else if(this.Y >= altoTierra){
-                    if(this.Y <= 0){
-                    }else{
+            if(condicionExplosion == false){
+                //para fuera de la tierra
+                if(ObjNave.Y <= altoPagina - altoNave * 8.7 || 
+                    ObjNave.Y >= altoPagina - altoNave * 5 || 
+                    ObjNave.X <= anchoPagina - anchoLuna * 1.8){
+                    if(this.X >= anchoTierra && this.Y <= altoTierra){
                         this.Y -= this.gravedad * ObjNave.Velocidad;
+                    //cuando esta encima de la tierra
+                    }else if(this.Y >= altoTierra){
+                        if(this.Y <= 0){
+                        }else{
+                            //victoria
+                            this.Y -= this.gravedad * ObjNave.Velocidad;
+                            if(ObjNave.X + anchoNave*2.3 >= anchoPagina - anchoLuna && 
+                            ObjNave.Y + altoNave * 3.5 >= altoPagina - altoPagina*0.2 - altoLuna &&
+                            ObjNave.Y + altoNave * 3.5 <= altoPagina - altoPagina*0.2 + altoNave
+                            ){
+                                if(this.Velocidad <= 1.5){
+                                    alert("¡Felicidades! Has aterrizado con éxito en la luna");
+                                }else{
+                                    nave.src = 'explosion1.png';
+                                    luna.src = 'explosion1.png';
+                                    condicionExplosion = true;
+                                }
+                            }  
+                        }
+                    //si se pasa se recoloca
                     }
-                //si se pasa se recoloca
-                }
-                if(this.Y <= -142){
-                    this.Y = -142;
+                    if(this.Y <= -142){
+                        this.Y = -142;
+                    }
                 }
             }
         }, 10);
@@ -82,12 +98,14 @@ ObjNave = {
             nave.style.marginBottom = this.Y + "px";
 
             if(salirTierra == true){
-                if(ObjNave.Velocidad <= 1){
-                    nave.src = 'naveOkrec.png';
-                }else if(ObjNave.Velocidad <= 5 && ObjNave.Velocidad >= 1){
-                    nave.src = 'naveOkpeq.png';
-                }else{
-                    nave.src = 'naveok.png';
+                if(condicionExplosion == false){
+                    if(ObjNave.Velocidad <= 1){
+                        nave.src = 'naveOkrec.png';
+                    }else if(ObjNave.Velocidad <= 5 && ObjNave.Velocidad >= 1){
+                        nave.src = 'naveOkpeq.png';
+                    }else{
+                        nave.src = 'naveok.png';
+                    }
                 }
             }
         });
@@ -105,21 +123,29 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowUp":
             if(!arriba){
                 arriba = setInterval(()=>{
-                    //movimiento
-                    if(ObjNave.Velocidad <= 9.99){
-                        ObjNave.Velocidad += 0.01;
-                    }
-                    //colision luna
-                    if(ObjNave.Y <= altoPagina - altoNave * 8.7 || ObjNave.Y >= altoPagina - altoNave * 6 || ObjNave.X <= anchoPagina - anchoLuna * 1.8){
-                        //techo
-                        if(altoPagina >= ObjNave.Y + altoNave * 3.5){
-                            ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                    if(condicionExplosion == false){
+                        //movimiento
+                        if(ObjNave.Velocidad <= 9.99){
+                            ObjNave.Velocidad += 0.01;
                         }
-                        clearInterval(disminuirVelocidad);
-                        disminuirVelocidad = null;
-                        if(ObjNave.Y >= altoTierra){
-                            nave.src = 'naveOkpeq.png';
-                            salirTierra = true;
+                        //colision luna
+                        if(ObjNave.Y <= altoPagina - altoNave * 8.7 || ObjNave.Y >= altoPagina - altoNave * 6 || ObjNave.X <= anchoPagina - anchoLuna * 1.8){
+                            //techo
+                            if(altoPagina >= ObjNave.Y + altoNave * 3.5){
+                                ObjNave.Y += 0.5 * ObjNave.Velocidad;
+                            }
+                            clearInterval(disminuirVelocidad);
+                            disminuirVelocidad = null;
+                            if(ObjNave.Y >= altoTierra){
+                                if(condicionExplosion == false){
+                                    nave.src = 'naveOkpeq.png';
+                                    salirTierra = true;
+                                }
+                            }
+                        }else{
+                            nave.src = 'explosion1.png';
+                            luna.src = 'explosion1.png';
+                            condicionExplosion = true;
                         }
                     }
                 }, 10);
@@ -131,26 +157,28 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowDown":
             if(!abajo){
                 abajo = setInterval(()=>{
-                    //colision con la tierra
-                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
-                    //colision luna
-                    }else if(ObjNave.Y <= altoLuna){
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
-                    }else{
-                        if(ObjNave.Y <= altoPagina - altoNave * 8.7 || 
-                            ObjNave.Y >= altoPagina - altoNave * 5 || 
-                            ObjNave.X <= anchoPagina - anchoLuna * 1.8){
-                            //movimiento
-                            if(ObjNave.Y >= -135){
-                                if(ObjNave.Velocidad <= 9.99){
-                                    ObjNave.Velocidad += 0.01;
+                    if(condicionExplosion == false){
+                        //colision con la tierra
+                        if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                        //colision luna
+                        }else if(ObjNave.Y <= altoLuna){
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                        }else{
+                            if(ObjNave.Y <= altoPagina - altoNave * 8.7 || 
+                                ObjNave.Y >= altoPagina - altoNave * 5 || 
+                                ObjNave.X <= anchoPagina - anchoLuna * 1.8){
+                                //movimiento
+                                if(ObjNave.Y >= -135){
+                                    if(ObjNave.Velocidad <= 9.99){
+                                        ObjNave.Velocidad += 0.01;
+                                    }
+                                    ObjNave.Y -= 0.5 * ObjNave.Velocidad;
+                                    clearInterval(disminuirVelocidad); 
+                                    disminuirVelocidad = null;
                                 }
-                                ObjNave.Y -= 0.5 * ObjNave.Velocidad;
-                                clearInterval(disminuirVelocidad); 
-                                disminuirVelocidad = null;
                             }
                         }
                     }
@@ -163,19 +191,21 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowLeft":
             if(!izquierda){
                 izquierda = setInterval(()=>{
-                    //colision con la tierra
-                    if(ObjNave.X <= anchoTierra && ObjNave.Y <= altoTierra-10){
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
-                    }else{
-                        //movimiento
-                        if(ObjNave.X >= -anchoNave*1.4){
-                            if(ObjNave.Velocidad <= 9.99){
-                                ObjNave.Velocidad += 0.01;
-                            }
-                            ObjNave.X -= 0.5 * ObjNave.Velocidad;
+                    if(condicionExplosion == false){
+                        //colision con la tierra
+                        if(ObjNave.X <= anchoTierra && ObjNave.Y <= altoTierra-10){
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
+                        }else{
+                            //movimiento
+                            if(ObjNave.X >= -anchoNave*1.4){
+                                if(ObjNave.Velocidad <= 9.99){
+                                    ObjNave.Velocidad += 0.01;
+                                }
+                                ObjNave.X -= 0.5 * ObjNave.Velocidad;
+                                clearInterval(disminuirVelocidad); 
+                                disminuirVelocidad = null;
+                            }
                         }
                     }
                 }, 10);
@@ -187,29 +217,34 @@ document.addEventListener("keydown", function(teclas){
         case "ArrowRight":
             if(!derecha){
                 derecha = setInterval(()=>{
-                    //colision con la tierra
-                    if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
-                    //colision luna
-                    }else if(
-                        ObjNave.X + anchoNave*2.46 >= anchoPagina - anchoLuna && 
-                        ObjNave.Y + altoNave * 3.5 >= altoPagina - altoPagina*0.2 - altoLuna &&
-                        ObjNave.Y + altoNave * 3.5 <= altoPagina - altoPagina*0.2 + altoNave
-                        ){
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
-                    }else{
-                        //movimiento
-                        if(ObjNave.Velocidad <= 9.99){
-                            ObjNave.Velocidad += 0.01;
+                    if(condicionExplosion == false){
+                        //colision con la tierra
+                        if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                        //colision luna
+                        }else if(
+                            ObjNave.X + anchoNave*2.46 >= anchoPagina - anchoLuna && 
+                            ObjNave.Y + altoNave * 3.5 >= altoPagina - altoPagina*0.2 - altoLuna &&
+                            ObjNave.Y + altoNave * 3.6 <= altoPagina - altoPagina*0.2 + altoNave
+                            ){
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
+                            nave.src = 'explosion1.png';
+                            luna.src = 'explosion1.png';
+                            condicionExplosion = true;
+                        }else{
+                            //movimiento
+                            if(ObjNave.Velocidad <= 9.99){
+                                ObjNave.Velocidad += 0.01;
+                            }
+                            //pared
+                            if(anchoPagina >= ObjNave.X + anchoNave*2.46){
+                                ObjNave.X += 0.5 * ObjNave.Velocidad;
+                            }
+                            clearInterval(disminuirVelocidad); 
+                            disminuirVelocidad = null;
                         }
-                        //pared
-                        if(anchoPagina >= ObjNave.X + anchoNave*2.46){
-                            ObjNave.X += 0.5 * ObjNave.Velocidad;
-                        }
-                        clearInterval(disminuirVelocidad); 
-                        disminuirVelocidad = null;
                     }
                 }, 10);
             }
@@ -257,13 +292,13 @@ document.addEventListener("keyup", function(teclas){
                 disminuirVelocidad = null;
             }else{
                 if(ObjNave.Velocidad <= 2){
-                    ObjNave.Velocidad -= 0.02;
-                }else if(ObjNave.Velocidad <= 4){
                     ObjNave.Velocidad -= 0.04;
+                }else if(ObjNave.Velocidad <= 4){
+                    ObjNave.Velocidad -= 0.07;
                 }else if(ObjNave.Velocidad <= 6){
-                    ObjNave.Velocidad -= 0.06;
-                }else if(ObjNave.Velocidad <= 8){
                     ObjNave.Velocidad -= 0.08;
+                }else if(ObjNave.Velocidad <= 8){
+                    ObjNave.Velocidad -= 0.09;
                 }else if(ObjNave.Velocidad <= 10){
                     ObjNave.Velocidad -= 0.1;
                 }
