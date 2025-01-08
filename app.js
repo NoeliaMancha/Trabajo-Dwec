@@ -272,12 +272,14 @@ document.addEventListener("keyup", function(teclas){
     }
 });
 
+/*
 //para que solo se ejecute cuando este cargado por completo
 document.addEventListener('DOMContentLoaded', function() {
     ObjNave.iniciarGravedad();
     ObjNave.mostrarDatos();
     ObjNave.moverNave();
 });
+*/
 
 
 
@@ -378,6 +380,8 @@ let direccionX=1;
 let verticalY=0;
 let direccionY=1;
 
+let intervaloASteroide1;
+
 function moverAsteroide1(){
     horizontalX +=5 * direccionX;
     asteroide1.style.marginLeft=horizontalX+"px";
@@ -408,7 +412,7 @@ function moverAsteroide2(){
     console.log("Vertical asteroide 2 = "+verticalY);
 }
 
-setInterval(moverAsteroide1, 10);
+intervaloASteroide1 = setInterval(moverAsteroide1, 10);
 setInterval(moverAsteroide2, 10);
 
     let horizontalX3=0;
@@ -418,9 +422,6 @@ setInterval(moverAsteroide2, 10);
 
     let anchoPaginaA3 = window.innerWidth;
     let altoPaginaA3 = window.innerHeight -3;
-
-    anchoAsteroide3=asteroide3.offsetWidth;
-    altoAsteroide3=asteroide3.offsetWidth;
 
     horizontalX3 = (anchoPaginaA3 - anchoAsteroide3) / 2; // Centrar horizontalmente
     verticalY3 = (altoPaginaA3 - altoAsteroide3) / 2; // Centrar verticalmente
@@ -460,5 +461,43 @@ function moverAsteroide3(){
 }
 
 setInterval(moverAsteroide3, 10);
+
+// función colisión nave con asteroide 1
+
+/*
+function colisionAsteroide1() {
+    if (
+        (ObjNave.X + anchoNave) >= horizontalX && // Lado derecho de la nave cruza el lado izquierdo del asteroide
+        ObjNave.X <= (horizontalX + anchoAsteroide1) && // Lado izquierdo de la nave cruza el lado derecho del asteroide
+        (ObjNave.Y + altoNave) >= 0 && // Lado inferior de la nave cruza el lado superior del asteroide
+        ObjNave.Y <= (altoAsteroide1) // Lado superior de la nave creza el lado inferior del asteroide
+    ) {
+        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
+        asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
+
+        // Detener el movimiento de la nave y del asteroide
+        clearInterval(arriba);
+        clearInterval(abajo);
+        clearInterval(izquierda);
+        clearInterval(derecha);
+        clearInterval(disminuirVelocidad);
+        clearInterval(intervaloASteroide1);
+    }
+}
+
+// Iniciar el juego
+
+document.addEventListener('DOMContentLoaded', function() {
+    ObjNave.iniciarGravedad();
+    ObjNave.mostrarDatos();
+    ObjNave.moverNave();
+    intervaloASteroide1;
+
+    setInterval(colisionAsteroide1, 10);
+});
+
+*/
+
+
 
 
