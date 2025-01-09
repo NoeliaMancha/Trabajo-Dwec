@@ -74,3 +74,14 @@ Objetivos planeados:
 Resultados finales:
 	- Noelia ha conseguido corregir los dos errores que había con el asteroide 3, uno era que se salía de los límites de la pantalla y el otro que no chocaba con los límites de la pantalla. Ambos errores han quedado corregidos.
     - Iván ha conseguido crear una colision entre la luna y la tierra
+
+Dia 7:
+Objetivos planeados:
+	- Crear una colisión entre la nave y el asteroide 1.
+
+Resultados finales:
+	- Noelia ha cambiado las imágenes referentes a las explosiones y ha creado un código para la colisión entre la nave y el asteroide 1, pero no funciona de manera correcta.
+
+Día 8:
+Objetivos planeados:
+	- Corregir los errores del código referente a la colisión entre el asteroide 1 y la nave.

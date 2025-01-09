@@ -307,108 +307,14 @@ document.addEventListener("keyup", function(teclas){
     }
 });
 
-
+/*
 //para que solo se ejecute cuando este cargado por completo
 document.addEventListener('DOMContentLoaded', function() {
     ObjNave.iniciarGravedad();
     ObjNave.mostrarDatos();
     ObjNave.moverNave();
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 let horizontalX=0;
 let direccionX=1;
@@ -490,41 +396,11 @@ function moverAsteroide3(){
     console.log("Vertical asteroide 3 = "+verticalY3);
 }
 
+
+
 // función colisión nave con asteroide 1
 
-/*
-function colisionAsteroide1() {
-    if (
-        (ObjNave.X + anchoNave) >= horizontalX && // Lado derecho de la nave cruza el lado izquierdo del asteroide
-        ObjNave.X <= (horizontalX + anchoAsteroide1) && // Lado izquierdo de la nave cruza el lado derecho del asteroide
-        (ObjNave.Y + altoNave) >= 0 && // Lado inferior de la nave cruza el lado superior del asteroide
-        ObjNave.Y <= (altoAsteroide1) // Lado superior de la nave creza el lado inferior del asteroide
-    ) {
-        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
-        asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
 
-        // Detener el movimiento de la nave y del asteroide
-        clearInterval(arriba);
-        clearInterval(abajo);
-        clearInterval(izquierda);
-        clearInterval(derecha);
-        clearInterval(disminuirVelocidad);
-        clearInterval(intervaloASteroide1);
-    }
-}
-
-// Iniciar el juego
-
-document.addEventListener('DOMContentLoaded', function() {
-    ObjNave.iniciarGravedad();
-    ObjNave.mostrarDatos();
-    ObjNave.moverNave();
-    intervaloASteroide1;
-
-    setInterval(colisionAsteroide1, 10);
-});
-
-*/
 function colisionAsteroide1() {
 
     nave.src = 'naveOkrec.png'; 
@@ -554,6 +430,4 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(colisionAsteroide1, 10);
      
 });
-
-
 
