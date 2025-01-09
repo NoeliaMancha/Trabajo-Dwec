@@ -77,11 +77,18 @@ Resultados finales:
 
 Dia 7:
 Objetivos planeados:
-	- Crear una colisión entre la nave y el asteroide 1.
+	- Tratar de hacer colisiones entre nave y luna.
+	- Tratar de hacer colisiones entre nave y asteroides.
 
 Resultados finales:
 	- Noelia ha cambiado las imágenes referentes a las explosiones y ha creado un código para la colisión entre la nave y el asteroide 1, pero no funciona de manera correcta.
-
+    - Iván ha conseguido crear una colision de choque y de victoria con la luna.
+    
 Día 8:
 Objetivos planeados:
 	- Corregir los errores del código referente a la colisión entre el asteroide 1 y la nave.
+    - Crear las colisiones de la nave con el asteroide 2 y 3.
+
+Resultados finales:
+    - Noelia sigue corriegiendo los errores entre la colisión de la nave y el asteroide 1.
+    - Ivan ha conseguido mejorar la colisión con la luna.
