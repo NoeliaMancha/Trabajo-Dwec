@@ -308,12 +308,6 @@ document.addEventListener("keyup", function(teclas){
 });
 
 
-//para que solo se ejecute cuando este cargado por completo
-document.addEventListener('DOMContentLoaded', function() {
-    ObjNave.iniciarGravedad();
-    ObjNave.mostrarDatos();
-    ObjNave.moverNave();
-});
 
 
 
@@ -407,142 +401,108 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-let horizontalX=0;
+let asteroide1X=0;
+let asteroide1Y=asteroide1.getBoundingClientRect().y;
 let direccionX=1;
-let verticalY=0;
+
+let asteroide2Y=0;
+let asteroide2X=asteroide2.getBoundingClientRect().x;
 let direccionY=1;
 
-function moverAsteroide1(){
-    horizontalX +=5 * direccionX;
-    asteroide1.style.marginLeft=horizontalX+"px";
+console.log(ObjNave.X);
+console.log(ObjNave.Y);
+console.log(asteroide1X);
+console.log(asteroide1Y);
 
-    if(horizontalX + anchoAsteroide1> anchoPagina){
-        horizontalX=anchoPagina-anchoAsteroide1;
+function moverAsteroide1(){
+    asteroide1X +=5 * direccionX;
+    asteroide1.style.marginLeft=asteroide1X+"px";
+
+    if(asteroide1X + anchoAsteroide1> anchoPagina){
+        asteroide1X=anchoPagina-anchoAsteroide1;
         direccionX=-1
-    }else if(horizontalX<0){
-        horizontalX=0;
+    }else if(asteroide1X<0){
+        asteroide1X=0;
         direccionX=1;
     }
-
-    console.log("Horizontal asteroide 1 = "+horizontalX);
 }
 
 function moverAsteroide2(){
-    verticalY +=5 * direccionY;
-    asteroide2.style.marginTop=verticalY+"px";
+    asteroide2Y +=5 * direccionY;
+    asteroide2.style.marginTop=asteroide2Y+"px";
 
-    if(verticalY + altoAsteroide2> altoPagina -4){
-        verticalY= altoPagina-altoAsteroide2;
+    if(asteroide2Y + altoAsteroide2> altoPagina -4){
+        asteroide2Y= altoPagina-altoAsteroide2;
         direccionY=-1;
-    }else if(verticalY<0){
-        verticalY=0;
+    }else if(asteroide2Y<0){
+        asteroide2Y=0;
         direccionY=1;
     }
 
-    console.log("Vertical asteroide 2 = "+verticalY);
+    //console.log("Vertical asteroide 2 = "+asteroide2Y);
 }
 
-    let horizontalX3=0;
+
+    let asteroide1X3=0;
     let direccionX3=1;
-    let verticalY3=0;
+    let asteroide2Y3=0;
     let direccionY3=1;
 
     let anchoPaginaA3 = window.innerWidth;
     let altoPaginaA3 = window.innerHeight -3;
 
-    horizontalX3 = (anchoPaginaA3 - anchoAsteroide3) / 2; // Centrar horizontalmente
-    verticalY3 = (altoPaginaA3 - altoAsteroide3) / 2; // Centrar verticalmente
+    anchoAsteroide3=asteroide3.offsetWidth;
+    altoAsteroide3=asteroide3.offsetWidth;
 
-    asteroide3.style.marginLeft = horizontalX3 + "px"; 
-    asteroide3.style.marginTop = verticalY3 + "px"; 
+    asteroide1X3 = (anchoPaginaA3 - anchoAsteroide3) / 2; // Centrar horizontalmente
+    asteroide2Y3 = (altoPaginaA3 - altoAsteroide3) / 2; // Centrar verticalmente
+
+    asteroide3.style.marginLeft = asteroide1X3 + "px"; 
+    asteroide3.style.marginTop = asteroide2Y3 + "px"; 
 
 function moverAsteroide3(){
-    horizontalX3 +=5 * direccionX3;
-    verticalY3 +=5 * direccionY3;
+    asteroide1X3 +=5 * direccionX3;
+    asteroide2Y3 +=5 * direccionY3;
 
-    if(verticalY3 + altoAsteroide3> altoPaginaA3){
-        verticalY3= altoPaginaA3-altoAsteroide3;
+    if(asteroide2Y3 + altoAsteroide3> altoPaginaA3){
+        asteroide2Y3= altoPaginaA3-altoAsteroide3;
         direccionY3=-1;
     }
 
-    if(horizontalX3<0){
-        horizontalX3=0;
+    if(asteroide1X3<0){
+        asteroide1X3=0;
         direccionX3=1;
     }
 
-    if(verticalY3<0){
-        verticalY3=0;
+    if(asteroide2Y3<0){
+        asteroide2Y3=0;
         direccionY3=1;
     }
 
-    if(horizontalX3 + anchoAsteroide3> anchoPaginaA3){
-        horizontalX3=anchoPaginaA3-anchoAsteroide3;
+    if(asteroide1X3 + anchoAsteroide3> anchoPaginaA3){
+        asterioide1X3=anchoPaginaA3-anchoAsteroide3;
         direccionX3=-1;
     }
 
-    asteroide3.style.marginLeft = horizontalX3 + "px"; 
-    asteroide3.style.marginTop = verticalY3 + "px";
-
-    console.log("Horizontal asteroide 3 = "+horizontalX3);
-    console.log("Vertical asteroide 3 = "+verticalY3);
+    asteroide3.style.marginLeft = asteroide1X3 + "px"; 
+    asteroide3.style.marginTop = asteroide2Y3 + "px";
 }
 
-// función colisión nave con asteroide 1
-
-/*
 function colisionAsteroide1() {
     if (
-        (ObjNave.X + anchoNave) >= horizontalX && // Lado derecho de la nave cruza el lado izquierdo del asteroide
-        ObjNave.X <= (horizontalX + anchoAsteroide1) && // Lado izquierdo de la nave cruza el lado derecho del asteroide
-        (ObjNave.Y + altoNave) >= 0 && // Lado inferior de la nave cruza el lado superior del asteroide
-        ObjNave.Y <= (altoAsteroide1) // Lado superior de la nave creza el lado inferior del asteroide
+        ObjNave.X <= asteroide1X
     ) {
+
+        condicionExplosion = true;
         nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
         asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
 
-        // Detener el movimiento de la nave y del asteroide
-        clearInterval(arriba);
-        clearInterval(abajo);
-        clearInterval(izquierda);
-        clearInterval(derecha);
-        clearInterval(disminuirVelocidad);
-        clearInterval(intervaloASteroide1);
+        
+    
     }
 }
 
 // Iniciar el juego
-
-document.addEventListener('DOMContentLoaded', function() {
-    ObjNave.iniciarGravedad();
-    ObjNave.mostrarDatos();
-    ObjNave.moverNave();
-    intervaloASteroide1;
-
-    setInterval(colisionAsteroide1, 10);
-});
-
-*/
-function colisionAsteroide1() {
-
-    nave.src = 'naveOkrec.png'; 
-    asteroide1.src = 'Asteroride.png'; // Cambiar la imagen del asteroide a la explosión
-
-    if ((ObjNave.X + anchoNave) >= horizontalX && ObjNave.X <= (horizontalX + anchoAsteroide1)) {
-
-        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
-        asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
-
-        // Detener el movimiento de la nave y del asteroide
-        //alert("Has perdido");
-
-    }
-}
-
-// Iniciar el juego
-
 document.addEventListener('DOMContentLoaded', function() {
     ObjNave.iniciarGravedad();
     ObjNave.mostrarDatos();
@@ -551,9 +511,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(moverAsteroide1, 10);
     setInterval(moverAsteroide2, 10);
     setInterval(moverAsteroide3, 10);
-    setInterval(colisionAsteroide1, 10);
+    setInterval(moverAsteroide3, 10);
      
 });
-
-
 

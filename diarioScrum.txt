@@ -91,4 +91,4 @@ Objetivos planeados:
 
 Resultados finales:
     - Noelia sigue corriegiendo los errores entre la colisión de la nave y el asteroide 1.
-    - Ivan ha conseguido mejorar la colisión con la luna.
+    - Ivan ha conseguido terminar la colisión con la luna.
