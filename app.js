@@ -314,12 +314,10 @@ document.addEventListener("keyup", function(teclas){
 let asteroide1X=0;
 let asteroide1Y=asteroide1.getBoundingClientRect().y;
 let direccionX=1;
-let intervaloAsteroide1=setInterval(moverAsteroide1, 10);
 
 let asteroide2Y=0;
 let asteroide2X=asteroide2.getBoundingClientRect().x;
 let direccionY=1;
-let intervaloAsteroide2=setInterval(moverAsteroide2, 10);
 
 function moverAsteroide1(){
     asteroide1X +=5 * direccionX;
@@ -349,13 +347,10 @@ function moverAsteroide2(){
     //console.log("Vertical asteroide 2 = "+asteroide2Y);
 }
 
-
     let asteroide1X3=0;
     let direccionX3=1;
     let asteroide2Y3=0;
     let direccionY3=1;
-
-    let intervaloAsteroide3=setInterval(moverAsteroide3, 10);
 
     let anchoPaginaA3 = window.innerWidth;
     let altoPaginaA3 = window.innerHeight -3;
@@ -491,7 +486,7 @@ function victoria() {
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
         document.getElementById("victoria").style.display = "block";
-    }, 100);
+    }, 5);
 }
 
 function derrota() {
@@ -506,7 +501,7 @@ function derrota() {
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
         document.getElementById("derrota").style.display = "block";
-    }, 100);
+    }, 500);
 }
 
 // Iniciar el juego
@@ -515,9 +510,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ObjNave.mostrarDatos();
     ObjNave.moverNave();
   
-    intervaloAsteroide1 = setInterval(moverAsteroide1, 50);
-    intervaloAsteroide2 = setInterval(moverAsteroide2, 50);
-    intervaloAsteroide3 = setInterval(moverAsteroide3, 100);
+    intervaloAsteroide1 = setInterval(moverAsteroide1, 10);
+    intervaloAsteroide2 = setInterval(moverAsteroide2, 10);
+    intervaloAsteroide3 = setInterval(moverAsteroide3, 20);
     colisionAsteroide1Interval = setInterval(colisionAsteroide1, 10);
     colisionAsteroide2Interval = setInterval(colisionAsteroide2, 10);
     colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
@@ -525,4 +520,12 @@ document.addEventListener('DOMContentLoaded', function() {
     //los botones de reiniciar
     reiniciar();
     reiniciarDerrota();
+
+    //quitar bordes
+    nave.style.border = "none";
+    tierra.style.border = "none";
+    luna.style.border = "none";
+    asteroide1.style.border = "none";
+    asteroide2.style.border = "none";
+    asteroide3.style.border = "none";
 });
