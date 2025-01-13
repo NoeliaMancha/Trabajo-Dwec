@@ -308,102 +308,10 @@ document.addEventListener("keyup", function(teclas){
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let asteroide1X=0;
 let asteroide1Y=asteroide1.getBoundingClientRect().y;
 let direccionX=1;
+let intervaloAsteroide1=setInterval(moverAsteroide1,10);
 
 let asteroide2Y=0;
 let asteroide2X=asteroide2.getBoundingClientRect().x;
@@ -489,17 +397,26 @@ function moverAsteroide3(){
 }
 
 function colisionAsteroide1() {
+
+    // Obtener las posiciones y dimensiones de la nave y el asteroide
+    const naveRect = nave.getBoundingClientRect();
+    const asteroide1Rect = asteroide1.getBoundingClientRect();
+
+    // Verificar si hay colisión
     if (
-        ObjNave.X <= asteroide1X
+        naveRect.x < asteroide1Rect.x + anchoAsteroide1 &&
+        naveRect.x + anchoNave > asteroide1Rect.x &&
+        naveRect.y < asteroide1Rect.y + altoAsteroide1 &&
+        naveRect.y + altoNave > asteroide1Rect.y
     ) {
 
+        // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
         nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
         asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
-
-        
-    
+        clearInterval(intervaloAsteroide1);
     }
+
 }
 
 // Iniciar el juego
@@ -508,10 +425,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ObjNave.mostrarDatos();
     ObjNave.moverNave();
   
-    setInterval(moverAsteroide1, 10);
+    intervaloAsteroide1;
     setInterval(moverAsteroide2, 10);
     setInterval(moverAsteroide3, 10);
-    setInterval(moverAsteroide3, 10);
+    setInterval(colisionAsteroide1, 10);
      
 });
-
