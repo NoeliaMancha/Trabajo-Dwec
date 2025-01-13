@@ -397,7 +397,6 @@ function moverAsteroide3(){
 }
 
 
-
 // función colisión nave con asteroide 1
 
 
