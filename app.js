@@ -28,13 +28,6 @@ altoAsteroide2=asteroide2.offsetWidth;
 anchoAsteroide3=asteroide3.offsetWidth;
 altoAsteroide3=asteroide3.offsetWidth;
 
-console.log("Alto pagina "+altoPagina);
-console.log("Ancho pagina "+anchoPagina); 
-console.log("Alto nave "+altoNave); 
-console.log("Ancho "+anchoNave); 
-console.log("Alto luna "+altoLuna); 
-console.log("Ancho luna "+anchoLuna); 
-
 ObjNave = {
     //variables de la nave
     Velocidad: 1,
@@ -345,8 +338,6 @@ function moverAsteroide2(){
         asteroide2Y=0;
         direccionY=1;
     }
-
-    //console.log("Vertical asteroide 2 = "+asteroide2Y);
 }
 
 
@@ -418,7 +409,6 @@ function colisionAsteroide1() {
         clearInterval(intervaloAsteroide1);
         derrota();
     }
-
 }
 
 function colisionAsteroide2(){
@@ -465,7 +455,6 @@ function colisionAsteroide3(){
         clearInterval(intervaloAsteroide3);
         derrota();
     }
-
 }
 
 function reiniciar(){
@@ -480,33 +469,37 @@ function reiniciarDerrota(){
 }
 
 function victoria() {
-    clearInterval(intervaloAsteroide1);
-    clearInterval(intervaloAsteroide2);
-    clearInterval(intervaloAsteroide3);
+
     clearInterval(colisionAsteroide1Interval);
     clearInterval(colisionAsteroide2Interval);
     clearInterval(colisionAsteroide3Interval);
+    clearInterval(intervaloAsteroide1);
+    clearInterval(intervaloAsteroide2);
+    clearInterval(intervaloAsteroide3);
+
     setTimeout(() => {
         document.body.style.backgroundImage = 'none';
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
         document.getElementById("victoria").style.display = "block";
-    }, 100);
+    }, 500);
 }
 
 function derrota() {
-    clearInterval(intervaloAsteroide1);
-    clearInterval(intervaloAsteroide2);
-    clearInterval(intervaloAsteroide3);
+
     clearInterval(colisionAsteroide1Interval);
     clearInterval(colisionAsteroide2Interval);
     clearInterval(colisionAsteroide3Interval);
+    clearInterval(intervaloAsteroide1);
+    clearInterval(intervaloAsteroide2);
+    clearInterval(intervaloAsteroide3);
+
     setTimeout(() => {
         document.body.style.backgroundImage = 'none';
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
         document.getElementById("derrota").style.display = "block";
-    }, 100);
+    }, 500);
 }
 
 // Iniciar el juego
@@ -515,9 +508,9 @@ document.addEventListener('DOMContentLoaded', function() {
     ObjNave.mostrarDatos();
     ObjNave.moverNave();
   
-    intervaloAsteroide1 = setInterval(moverAsteroide1, 50);
-    intervaloAsteroide2 = setInterval(moverAsteroide2, 50);
-    intervaloAsteroide3 = setInterval(moverAsteroide3, 100);
+    intervaloAsteroide1;
+    intervaloAsteroide2;
+    intervaloAsteroide3;
     colisionAsteroide1Interval = setInterval(colisionAsteroide1, 10);
     colisionAsteroide2Interval = setInterval(colisionAsteroide2, 10);
     colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
