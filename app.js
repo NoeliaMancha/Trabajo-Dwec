@@ -410,8 +410,8 @@ function colisionAsteroide1() {
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
-        asteroide1.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
+        nave.src = 'explosion1.png'; 
+        asteroide1.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide1);
     }
 
@@ -433,8 +433,8 @@ function colisionAsteroide2(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
-        asteroide2.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
+        nave.src = 'explosion1.png'; 
+        asteroide2.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide2);
     }
 }
@@ -455,8 +455,8 @@ function colisionAsteroide3(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; // Cambiar la imagen de la nave a la explosión
-        asteroide3.src = 'explosion3.png'; // Cambiar la imagen del asteroide a la explosión
+        nave.src = 'explosion1.png'; 
+        asteroide3.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide3);
     }
 
