@@ -63,8 +63,10 @@ Objetivos planeados:
 
 Resultados finales:
     -Iván ha conseguido que la imagen de la nave cambie segun diversos eventos.
-    -Noelia ha conseguido realizar los movimientos aleatorios del asteroide 3, aunque faltan realizar unos cambios puesto que se des encuadra de la pantalla. También ha realizado
-     los cambios necesarios en las imágenes a través de photoshop de la tierra, la luna y el cohete para que cuadren mejor con la experiencia de usuario que esperamos.
+    -Noelia ha conseguido realizar los movimientos aleatorios del asteroide 3, aunque faltan realizar unos cambios puesto que se 
+    desencuadra de la pantalla. También ha realizado
+     los cambios necesarios en las imágenes a través de photoshop de la tierra, la luna y el cohete para que cuadren mejor con la 
+     experiencia de usuario que esperamos.
 
 Dia 6:
 Objetivos planeados:
@@ -72,7 +74,8 @@ Objetivos planeados:
     - Crear una colision entre la nave y la luna
 
 Resultados finales:
-	- Noelia ha conseguido corregir los dos errores que había con el asteroide 3, uno era que se salía de los límites de la pantalla y el otro que no chocaba con los límites de la pantalla. Ambos errores han quedado corregidos.
+	- Noelia ha conseguido corregir los dos errores que había con el asteroide 3, uno era que se salía de los límites de la pantalla 
+    y el otro que no chocaba con los límites de la pantalla. Ambos errores han quedado corregidos.
     - Iván ha conseguido crear una colision entre la luna y la tierra
 
 Dia 7:
@@ -81,7 +84,8 @@ Objetivos planeados:
 	- Tratar de hacer colisiones entre nave y asteroides.
 
 Resultados finales:
-	- Noelia ha cambiado las imágenes referentes a las explosiones y ha creado un código para la colisión entre la nave y el asteroide 1, pero no funciona de manera correcta.
+	- Noelia ha cambiado las imágenes referentes a las explosiones y ha creado un código para la colisión entre la nave y el 
+    asteroide 1, pero no funciona de manera correcta.
     - Iván ha conseguido crear una colision de choque y de victoria con la luna.
     
 Día 8:
@@ -101,5 +105,8 @@ Objetivos planeados:
     - Corregir los errores de las imágenes.
 
 Resultados finales:
-    - Iván y Noelia han conseguido a base de diferentes pruebas hacer que funcione la colisión entre la nave y el asteroide 1 de manera totalmente correcta.
-    -
+    - Iván y Noelia han conseguido a base de diferentes pruebas hacer que funcione la colisión entre la nave y el asteroide 1 de 
+    manera totalmente correcta.
+    - Noelia ha creado las funciones para las colisiones entre la nave y los asteroides 2 y 3 a partir de la realizada para 
+    la colisión entre la nave y el asteroide 1.
+    -Iván ha creado las pantallas de perdido y ganado.
