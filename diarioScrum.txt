@@ -109,4 +109,4 @@ Resultados finales:
     manera totalmente correcta.
     - Noelia ha creado las funciones para las colisiones entre la nave y los asteroides 2 y 3 a partir de la realizada para 
     la colisión entre la nave y el asteroide 1.
-    -Iván ha creado las pantallas de perdido y ganado.
+    -Iván ha creado las pantallas de perdido y ganado y las a implementado correctamente en el programa.
