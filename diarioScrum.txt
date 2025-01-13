@@ -91,4 +91,15 @@ Objetivos planeados:
 
 Resultados finales:
     - Noelia sigue corriegiendo los errores entre la colisión de la nave y el asteroide 1.
-    - Ivan ha conseguido terminar la colisión con la luna.
+    - Iván ha conseguido terminar la colisión con la luna.
+
+Día 9: 
+Objetivos planeados:
+    - Corregir los errores de la colisión entre la nave y el asteroide 1.
+    - Crear las colisiones de los asteroides 2 y 3.
+    - Crear las pantallas de ganado o perdido.
+    - Corregir los errores de las imágenes.
+
+Resultados finales:
+    - Iván y Noelia han conseguido a base de diferentes pruebas hacer que funcione la colisión entre la nave y el asteroide 1 de manera totalmente correcta.
+    -
