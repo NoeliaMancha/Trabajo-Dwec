@@ -14,6 +14,7 @@ body {
     bottom: 20%;
     left: 5.5%;
     width: 3.5%;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 #tierra {
     position: absolute;
@@ -21,15 +22,16 @@ body {
     left: 0;
     width: 14%;
     z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 #luna {
     position: absolute;
     right: 0%;
     top: 20%;
     right: 0;
-    border: 2px solid white;
     width: 10%;
     z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 #asteroide1, #asteroide2, #asteroide3 {
     position: absolute;
@@ -38,16 +40,19 @@ body {
     width: 5%;
     top: 50%;
     left: 0;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 #asteroide2 {
     width: 6%;
     top: 0;
     left: 50%;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 #asteroide3 {
     width: 7%;
     top: 0;
     left: 0;
+    border: 2px solid rgba(255, 255, 255, 0);
 }
 .datos {
     position: absolute;

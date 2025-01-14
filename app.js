@@ -44,7 +44,7 @@ ObjNave = {
 
     iniciarGravedad(){
         //gravedad
-        intervalo = setInterval(()=>{
+        intervalo = setInterval(()=>{ 
             if(condicionExplosion == false){
                 //para fuera de la tierra
                 if(ObjNave.Y <= altoPagina - altoNave * 8.7 || 
@@ -78,12 +78,25 @@ ObjNave = {
                         this.Y = -142;
                     }
                 }
+                // Verificar victoria
+                if (ObjNave.X + anchoNave * 2.3 >= anchoPagina - anchoLuna &&
+                    ObjNave.Y + altoNave * 3.5 >= altoPagina - altoPagina * 0.2 - altoLuna &&
+                    ObjNave.Y + altoNave * 3.5 <= altoPagina - altoPagina * 0.2 + altoNave) {
+                    if (this.Velocidad <= 1.5) {
+                        victoria();
+                    } else {
+                        nave.src = 'explosion1.png';
+                        luna.src = 'explosion1.png';
+                        condicionExplosion = true;
+                        derrota();
+                    }
+                }
             }
         }, 10);
     },
     mostrarDatos(){
         //mostrar coordenadas
-        intervalo2 = setInterval(()=>{
+        intervalo2 = setInterval(()=>{ 
             document.getElementById("cords").innerHTML = "X: " + this.X.toFixed(2) + "<br> Y: " + this.Y.toFixed(2);
             if(this.Velocidad <= 1){
                 document.getElementById("velocidad").innerHTML = "0.00 Km/s";
@@ -94,7 +107,7 @@ ObjNave = {
     },
     moverNave(){
         salirTierra = false;
-        intervalo3 = setInterval(()=>{
+        intervalo3 = setInterval(()=>{ 
             nave.style.marginLeft = this.X + "px";
             nave.style.marginBottom = this.Y + "px";
 
@@ -123,7 +136,7 @@ document.addEventListener("keydown", function(teclas){
         case "W":
         case "ArrowUp":
             if(!arriba){
-                arriba = setInterval(()=>{
+                arriba = setInterval(()=>{ 
                     if(condicionExplosion == false){
                         //movimiento
                         if(ObjNave.Velocidad <= 9.99){
@@ -158,7 +171,7 @@ document.addEventListener("keydown", function(teclas){
         case "S":
         case "ArrowDown":
             if(!abajo){
-                abajo = setInterval(()=>{
+                abajo = setInterval(()=>{ 
                     if(condicionExplosion == false){
                         //colision con la tierra
                         if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra){
@@ -192,7 +205,7 @@ document.addEventListener("keydown", function(teclas){
         case "A":
         case "ArrowLeft":
             if(!izquierda){
-                izquierda = setInterval(()=>{
+                izquierda = setInterval(()=>{ 
                     if(condicionExplosion == false){
                         //colision con la tierra
                         if(ObjNave.X <= anchoTierra && ObjNave.Y <= altoTierra-10){
@@ -218,7 +231,7 @@ document.addEventListener("keydown", function(teclas){
         case "D":
         case "ArrowRight":
             if(!derecha){
-                derecha = setInterval(()=>{
+                derecha = setInterval(()=>{ 
                     if(condicionExplosion == false){
                         //colision con la tierra
                         if(ObjNave.X <= anchoTierra-10 && ObjNave.Y <= altoTierra-10){
@@ -289,7 +302,7 @@ document.addEventListener("keyup", function(teclas){
 
     //comenzar a bajar la velocidad al soltar una tecla
     if(!disminuirVelocidad){
-        disminuirVelocidad = setInterval(()=>{
+        disminuirVelocidad = setInterval(()=>{ 
             if (ObjNave.Velocidad <= 1) { 
                 clearInterval(disminuirVelocidad); 
                 disminuirVelocidad = null;
@@ -463,17 +476,6 @@ function colisionAsteroide3(){
 
 }
 
-function reiniciar(){
-    document.getElementById("reiniciar").addEventListener("click", function() {
-        location.reload();
-    });
-}
-function reiniciarDerrota(){
-    document.getElementById("reiniciarDerrota").addEventListener("click", function() {
-        location.reload();
-    });
-}
-
 function victoria() {
     clearInterval(intervaloAsteroide1);
     clearInterval(intervaloAsteroide2);
@@ -487,6 +489,10 @@ function victoria() {
         document.getElementById("todo").style.display = "none";
         document.getElementById("victoria").style.display = "block";
     }, 5);
+    
+    document.getElementById("reiniciar").addEventListener("click", function() {
+        location.reload();
+    });
 }
 
 function derrota() {
@@ -502,6 +508,10 @@ function derrota() {
         document.getElementById("todo").style.display = "none";
         document.getElementById("derrota").style.display = "block";
     }, 500);
+
+    document.getElementById("reiniciarDerrota").addEventListener("click", function() {
+        location.reload();
+    });
 }
 
 // Iniciar el juego
@@ -517,15 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
     colisionAsteroide2Interval = setInterval(colisionAsteroide2, 10);
     colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
 
-    //los botones de reiniciar
-    reiniciar();
-    reiniciarDerrota();
-
-    //quitar bordes
-    nave.style.border = "none";
-    tierra.style.border = "none";
-    luna.style.border = "none";
-    asteroide1.style.border = "none";
-    asteroide2.style.border = "none";
-    asteroide3.style.border = "none";
+    //botones de reinicio
+    
+    
 });
