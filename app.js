@@ -65,8 +65,8 @@ ObjNave = {
                                 if(this.Velocidad <= 1.5){
                                     victoria();
                                 }else{
-                                    nave.src = 'explosion1.png';
-                                    luna.src = 'explosion1.png';
+                                    nave.src = 'explosion3.png';
+                                    luna.src = 'explosion2.png';
                                     condicionExplosion = true;
                                     derrota();
                                 }
@@ -85,8 +85,8 @@ ObjNave = {
                     if (this.Velocidad <= 1.5) {
                         victoria();
                     } else {
-                        nave.src = 'explosion1.png';
-                        luna.src = 'explosion1.png';
+                        nave.src = 'explosion3.png';
+                        luna.src = 'explosion2.png';
                         condicionExplosion = true;
                         derrota();
                     }
@@ -157,8 +157,8 @@ document.addEventListener("keydown", function(teclas){
                                 }
                             }
                         }else{
-                            nave.src = 'explosion1.png';
-                            luna.src = 'explosion1.png';
+                            nave.src = 'explosion3.png';
+                            luna.src = 'explosion2.png';
                             condicionExplosion = true;
                             derrota();
                         }
@@ -245,8 +245,8 @@ document.addEventListener("keydown", function(teclas){
                             ){
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
-                            nave.src = 'explosion1.png';
-                            luna.src = 'explosion1.png';
+                            nave.src = 'explosion3.png';
+                            luna.src = 'explosion2.png';
                             condicionExplosion = true;
                             derrota();
                         }else{
@@ -421,8 +421,8 @@ function colisionAsteroide1() {
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; 
-        asteroide1.src = 'explosion3.png'; 
+        nave.src = 'explosion3.png'; 
+        asteroide1.src = 'explosion1.png'; 
         clearInterval(intervaloAsteroide1);
         derrota();
     }
@@ -445,8 +445,8 @@ function colisionAsteroide2(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; 
-        asteroide2.src = 'explosion3.png'; 
+        nave.src = 'explosion3.png'; 
+        asteroide2.src = 'explosion1.png'; 
         clearInterval(intervaloAsteroide2);
         derrota();
     }
@@ -468,8 +468,8 @@ function colisionAsteroide3(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion1.png'; 
-        asteroide3.src = 'explosion3.png'; 
+        nave.src = 'explosion3.png'; 
+        asteroide3.src = 'explosion1.png'; 
         clearInterval(intervaloAsteroide3);
         derrota();
     }
