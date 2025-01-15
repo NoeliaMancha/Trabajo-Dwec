@@ -107,6 +107,15 @@ Objetivos planeados:
 Resultados finales:
     - Iván y Noelia han conseguido a base de diferentes pruebas hacer que funcione la colisión entre la nave y el asteroide 1 de 
     manera totalmente correcta.
-    - Noelia ha creado las funciones para las colisiones entre la nave y los asteroides 2 y 3 a partir de la realizada para 
-    la colisión entre la nave y el asteroide 1.
+    - Noelia ha creado las funciones para las colisiones entre la nave y los asteroides 2 y 3 a partir de la realizada para la colisión entre la nave y el asteroide 1.
     -Iván ha creado las pantallas de perdido y ganado y las a implementado correctamente en el programa.
+
+Día 10:
+Objetivos planeados:
+	- Solucionar problema con el aterrizaje de la luna.
+	- Retocar las imágenes de las explosiones.
+	- Crear pantalla de inicio.
+Resultados finales:
+	- Iván ha solucionado el problema que nos salía con el aterrizaje de la luna.
+	- Noelia ha retocado las imágenes de las explosiones para que tengan el mismo tamaño que los elementos a los que corresponden y para que el fondo no salga blanco.
+	
