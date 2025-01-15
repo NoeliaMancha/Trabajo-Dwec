@@ -115,7 +115,9 @@ Objetivos planeados:
 	- Solucionar problema con el aterrizaje de la luna.
 	- Retocar las imágenes de las explosiones.
 	- Crear pantalla de inicio.
+    
 Resultados finales:
 	- Iván ha solucionado el problema que nos salía con el aterrizaje de la luna.
+	- Iván ha creado una pantalla de inicio que pone en funcionamiento el programa.
 	- Noelia ha retocado las imágenes de las explosiones para que tengan el mismo tamaño que los elementos a los que corresponden y para que el fondo no salga blanco.
 	

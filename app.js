@@ -65,8 +65,8 @@ ObjNave = {
                                 if(this.Velocidad <= 1.5){
                                     victoria();
                                 }else{
-                                    nave.src = 'explosion3.png';
-                                    luna.src = 'explosion2.png';
+                                    nave.src = 'explosion1.png';
+                                    luna.src = 'explosion1.png';
                                     condicionExplosion = true;
                                     derrota();
                                 }
@@ -85,8 +85,8 @@ ObjNave = {
                     if (this.Velocidad <= 1.5) {
                         victoria();
                     } else {
-                        nave.src = 'explosion3.png';
-                        luna.src = 'explosion2.png';
+                        nave.src = 'explosion1.png';
+                        luna.src = 'explosion1.png';
                         condicionExplosion = true;
                         derrota();
                     }
@@ -157,8 +157,8 @@ document.addEventListener("keydown", function(teclas){
                                 }
                             }
                         }else{
-                            nave.src = 'explosion3.png';
-                            luna.src = 'explosion2.png';
+                            nave.src = 'explosion1.png';
+                            luna.src = 'explosion1.png';
                             condicionExplosion = true;
                             derrota();
                         }
@@ -245,8 +245,8 @@ document.addEventListener("keydown", function(teclas){
                             ){
                             clearInterval(disminuirVelocidad); 
                             disminuirVelocidad = null;
-                            nave.src = 'explosion3.png';
-                            luna.src = 'explosion2.png';
+                            nave.src = 'explosion1.png';
+                            luna.src = 'explosion1.png';
                             condicionExplosion = true;
                             derrota();
                         }else{
@@ -421,8 +421,8 @@ function colisionAsteroide1() {
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion3.png'; 
-        asteroide1.src = 'explosion1.png'; 
+        nave.src = 'explosion1.png'; 
+        asteroide1.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide1);
         derrota();
     }
@@ -445,8 +445,8 @@ function colisionAsteroide2(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion3.png'; 
-        asteroide2.src = 'explosion1.png'; 
+        nave.src = 'explosion1.png'; 
+        asteroide2.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide2);
         derrota();
     }
@@ -468,23 +468,11 @@ function colisionAsteroide3(){
 
         // Si hay colisión, cambiar la condición de explosión y las imágenes
         condicionExplosion = true;
-        nave.src = 'explosion3.png'; 
-        asteroide3.src = 'explosion1.png'; 
+        nave.src = 'explosion1.png'; 
+        asteroide3.src = 'explosion3.png'; 
         clearInterval(intervaloAsteroide3);
         derrota();
     }
-
-}
-
-function reiniciar(){
-    document.getElementById("reiniciar").addEventListener("click", function() {
-        location.reload();
-    });
-}
-function reiniciarDerrota(){
-    document.getElementById("reiniciarDerrota").addEventListener("click", function() {
-        location.reload();
-    });
 }
 
 function victoria() {
@@ -498,8 +486,16 @@ function victoria() {
         document.body.style.backgroundImage = 'none';
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
-        document.getElementById("victoria").style.display = "block";
-    }, 5);
+        document.getElementById("pantalla").style.display = "flex";
+        document.getElementById("pantalla").className = "pantalla victoria";
+        document.getElementById("parrafoPantalla").className = "parrafoVictoria";
+        document.getElementById("parrafoPantalla").textContent = "¡Felicidades! Has aterrizado con éxito en la luna";
+        document.getElementById("iniciar").className = "reiniciar";
+        document.getElementById("iniciar").textContent = "Reiniciar";
+        document.getElementById("iniciar").addEventListener("click", function() {
+            location.reload();
+        });
+    }, 500);
 }
 
 function derrota() {
@@ -513,24 +509,31 @@ function derrota() {
         document.body.style.backgroundImage = 'none';
         document.body.style.backgroundColor = 'black';
         document.getElementById("todo").style.display = "none";
-        document.getElementById("derrota").style.display = "block";
+        document.getElementById("pantalla").style.display = "flex";
+        document.getElementById("pantalla").className = "pantalla derrota";
+        document.getElementById("parrafoPantalla").className = "parrafoDerrota";
+        document.getElementById("parrafoPantalla").textContent = "¡Has perdido! La nave ha explotado";
+        document.getElementById("iniciar").className = "reiniciarDerrota";
+        document.getElementById("iniciar").textContent = "Reiniciar";
+        document.getElementById("iniciar").addEventListener("click", function() {
+            location.reload();
+        });
     }, 500);
 }
 
 // Iniciar el juego
 document.addEventListener('DOMContentLoaded', function() {
-    ObjNave.iniciarGravedad();
-    ObjNave.mostrarDatos();
-    ObjNave.moverNave();
-  
-    intervaloAsteroide1 = setInterval(moverAsteroide1, 10);
-    intervaloAsteroide2 = setInterval(moverAsteroide2, 10);
-    intervaloAsteroide3 = setInterval(moverAsteroide3, 20);
-    colisionAsteroide1Interval = setInterval(colisionAsteroide1, 10);
-    colisionAsteroide2Interval = setInterval(colisionAsteroide2, 10);
-    colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
-
-    //botones de reinicio
-    reiniciar();
-    reiniciarDerrota();
+    document.getElementById("iniciar").addEventListener("click", function() {
+        document.getElementById("pantalla").style.display = "none";
+        ObjNave.iniciarGravedad();
+        ObjNave.mostrarDatos();
+        ObjNave.moverNave();
+      
+        intervaloAsteroide1 = setInterval(moverAsteroide1, 10);
+        intervaloAsteroide2 = setInterval(moverAsteroide2, 10);
+        intervaloAsteroide3 = setInterval(moverAsteroide3, 20);
+        colisionAsteroide1Interval = setInterval(colisionAsteroide1, 10);
+        colisionAsteroide2Interval = setInterval(colisionAsteroide2, 10);
+        colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
+    });
 });
