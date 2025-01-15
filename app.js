@@ -489,7 +489,7 @@ function victoria() {
         document.getElementById("pantalla").style.display = "flex";
         document.getElementById("pantalla").className = "pantalla victoria";
         document.getElementById("parrafoPantalla").className = "parrafoVictoria";
-        document.getElementById("parrafoPantalla").textContent = "¡Felicidades! Has aterrizado con éxito en la luna";
+        document.getElementById("parrafoPantalla").textContent = "¡Felicidades! Has aterrizado con éxito en la Luna";
         document.getElementById("iniciar").className = "reiniciar";
         document.getElementById("iniciar").textContent = "Reiniciar";
         document.getElementById("iniciar").addEventListener("click", function() {
