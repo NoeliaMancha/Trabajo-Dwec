@@ -476,6 +476,17 @@ function colisionAsteroide3(){
 
 }
 
+function reiniciar(){
+    document.getElementById("reiniciar").addEventListener("click", function() {
+        location.reload();
+    });
+}
+function reiniciarDerrota(){
+    document.getElementById("reiniciarDerrota").addEventListener("click", function() {
+        location.reload();
+    });
+}
+
 function victoria() {
     clearInterval(intervaloAsteroide1);
     clearInterval(intervaloAsteroide2);
@@ -489,10 +500,6 @@ function victoria() {
         document.getElementById("todo").style.display = "none";
         document.getElementById("victoria").style.display = "block";
     }, 5);
-    
-    document.getElementById("reiniciar").addEventListener("click", function() {
-        location.reload();
-    });
 }
 
 function derrota() {
@@ -508,10 +515,6 @@ function derrota() {
         document.getElementById("todo").style.display = "none";
         document.getElementById("derrota").style.display = "block";
     }, 500);
-
-    document.getElementById("reiniciarDerrota").addEventListener("click", function() {
-        location.reload();
-    });
 }
 
 // Iniciar el juego
@@ -528,6 +531,6 @@ document.addEventListener('DOMContentLoaded', function() {
     colisionAsteroide3Interval = setInterval(colisionAsteroide3, 10);
 
     //botones de reinicio
-    
-    
+    reiniciar();
+    reiniciarDerrota();
 });
